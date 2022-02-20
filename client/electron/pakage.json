@@ -1,0 +1,12 @@
+{
+    "name": "trader_helper_electron",
+    "version": "1.0.0",
+    "description": "making life easier for traders",
+    "main": "main.js",
+    "scripts": {
+      "test": "test"
+    },
+    "author": "javad-sheikh",
+    "license": "ISC"
+  }
+  
