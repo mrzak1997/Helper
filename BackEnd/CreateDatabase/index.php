@@ -15,19 +15,18 @@ if (!mysqli_query($conn, $sql)) {
     return;
 }
 
-$CreateTable_Sql = "CREATE TABLE IF NOT EXISTS ".$ConnVar["database"].".`user` ( `user_id` INT NOT NULL AUTO_INCREMENT ,
-`firstname` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
- `lastname` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL ,
+$CreateTable_Sql = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`user` (
+`user_id` INT NOT NULL AUTO_INCREMENT ,
+`firstname` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci  ,
+ `lastname` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci ,
   `username` VARCHAR(30) NOT NULL , `password` VARCHAR(300) NOT NULL ,
-   `email` VARCHAR(150) NOT NULL , `gender` VARCHAR(10) NOT NULL ,
-    `phoneNumber` VARCHAR(15) NOT NULL , `isBlock` BOOLEAN NOT NULL ,
-     `role` VARCHAR(30) NOT NULL , `imageLink` VARCHAR(400) NOT NULL ,
+   `email` VARCHAR(150) NOT NULL , `gender` VARCHAR(10) ,
+    `phoneNumber` VARCHAR(15) , `isBlock` BOOLEAN NOT NULL ,
+     `role` VARCHAR(30) NOT NULL , `imageLink` VARCHAR(400),
       `date` TIMESTAMP NOT NULL , PRIMARY KEY (`user_id`)) ENGINE = InnoDB";
-      
-if(!mysqli_query($conn,$CreateTable_Sql)){
+
+if (!mysqli_query($conn, $CreateTable_Sql)) {
     echo "Table not Create";
-}else{
+} else {
     echo "table created";
 }
-
-?>
