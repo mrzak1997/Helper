@@ -3,7 +3,7 @@
 $ConnVar["servername"] = "localhost";
 $ConnVar["username"] = "root";
 $ConnVar["password"] = "";
-$ConnVar["database"] = "TraderHelper";
+$ConnVar["database"] = "traderhelper";
 
 $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"]);
 
