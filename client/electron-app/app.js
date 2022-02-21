@@ -8,13 +8,14 @@ const {app, BrowserWindow} = require('electron')
       mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        titleBarStyle: 'hidden' ,
+        titleBarStyle: 'hidden',
+        titleBarOverlay: true,
         
         webPreferences: {
           nodeIntegration: true
         }
       })
-
+      
       mainWindow.loadURL(
         url.format({
           pathname: path.join(__dirname, `/dist/electron-app/index.html`),
