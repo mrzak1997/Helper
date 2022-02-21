@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 
 $ConnVar["servername"] = "localhost";
 $ConnVar["username"] = "root";
@@ -35,13 +36,14 @@ try {
         `api_name` VARCHAR(30) NOT NULL,
         PRIMARY KEY (`id`)) ENGINE = InnoDB";
 
-
+    mysqli_set_charset($conn,'utf8_general_ci');
     if (!run_query($conn, $Create_Database, "Database not create", null) ||
         !run_query($conn, $CreateUserTable, null, null) ||
         !run_query($conn, $CreateLoginlogTable,null, null)||
         !run_query($conn, $CreateRolePermitionTable, "Table not Create", "table created")) {
         return;
     }
+    mysqli_close($conn);
 } catch (PDOException $e) {
     echo $e;
 }
