@@ -1,6 +1,6 @@
 <?php
 
-    include "CreateDatabase\index.php";
+    include "Controller\DefaultSettings.php";
 
 
 ?>
