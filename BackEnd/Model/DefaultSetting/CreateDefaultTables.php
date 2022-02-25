@@ -1,5 +1,4 @@
 <?php
-    include "config.php";
     class CreateDefaultTables{
         
         public function CreatetTable(){
@@ -7,6 +6,7 @@
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn'];
+
             $Create_Database = "CREATE DATABASE IF NOT EXISTS " . $ConnVar['database'] . "";
 
             $CreateUserTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`user` (
@@ -23,6 +23,9 @@
             $CreateLoginlogTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`loginLog` (
                 `id` INT NOT NULL AUTO_INCREMENT ,
                 `user_id` INT NOT NULL,
+                `status` varchar(20) NOT NULL,
+                `status_number` INT NOT NULL,
+                `ip` varchar(30) NOT NULL,
                 `count` INT NOT NULL ,
                 `isBlock` BOOLEAN NOT NULL ,
                 `date` TIMESTAMP NOT NULL , 
@@ -41,14 +44,17 @@
                     return false;
                 }
             }
-            return true;
             mysqli_close($conn);
+            return true;
+            
         }
+        
         private function run_query($conn, $sql)
         {
             if (mysqli_query($conn, $sql)) {
                 return true;
             }
+            mysqli_close($conn);
             return false;
         }
 
