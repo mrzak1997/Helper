@@ -15,7 +15,7 @@
                 `lastname` VARCHAR(30) CHARACTER SET utf8 COLLATE utf8_general_ci ,
                 `username` VARCHAR(30) NOT NULL , `password` VARCHAR(300) NOT NULL ,
                 `email` VARCHAR(150) NOT NULL , `gender` VARCHAR(10) ,
-                `phoneNumber` VARCHAR(15) , `isBlock` BOOLEAN NOT NULL ,
+                `phoneNumber` VARCHAR(15) , `isActive` BOOLEAN NOT NULL ,
                 `role` VARCHAR(30) NOT NULL,
                 `imageLink` VARCHAR(400),`date` TIMESTAMP NOT NULL ,
                  PRIMARY KEY (`user_id`)) ENGINE = InnoDB";
@@ -27,7 +27,7 @@
                 `status_number` INT NOT NULL,
                 `ip` varchar(30) NOT NULL,
                 `count` INT NOT NULL ,
-                `isBlock` BOOLEAN NOT NULL ,
+                `isActive` BOOLEAN NOT NULL ,
                 `date` TIMESTAMP NOT NULL , 
                 PRIMARY KEY (`id`)) ENGINE = InnoDB";
                     

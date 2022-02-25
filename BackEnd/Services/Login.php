@@ -20,5 +20,7 @@
         $user["password"] = $_POST["password"];
 
         echo $Authentication->main($user);
+    }else{
+        echo "not found";
     }
 ?>

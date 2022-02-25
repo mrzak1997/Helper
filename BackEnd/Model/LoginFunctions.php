@@ -14,11 +14,10 @@
             
             $result = mysqli_query($conn, $login_sql);
             if (mysqli_num_rows($result) > 0) {
-                //when isBlock be 0 everything is ok
+                //when isActive be 0 everything is ok
                 $row = mysqli_fetch_assoc($result);
 
-                echo $row["password"]==$Security->hashing_string($user['password']);
-                if($row["isBlock"]==="0"){
+                if($row["isActive"]==="1"){
                     $log["status_number"]=200;
                     $log["status"]="successful";
                     $log["token"]=$row["password"];
@@ -55,7 +54,7 @@
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
             
-            $insert_Sql = "INSERT INTO loginlog (user_id,status,status_number,ip,count,isBlock) 
+            $insert_Sql = "INSERT INTO loginlog (user_id,status,status_number,ip,count,isActive) 
             VALUES('".$user["user_id"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',0,0)";
             mysqli_query($conn,$insert_Sql);
             
