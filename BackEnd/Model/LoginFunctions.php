@@ -55,7 +55,7 @@
             $conn = $GLOBALS['conn_db'];
             
             $insert_Sql = "INSERT INTO loginlog (user_id,status,status_number,ip,count,isActive) 
-            VALUES('".$user["user_id"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',0,0)";
+            VALUES('".$user["user_id"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',0,1)";
             mysqli_query($conn,$insert_Sql);
             
             mysqli_close($conn);
