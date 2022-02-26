@@ -12,11 +12,11 @@
 
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
-                $Response["Status"]= $row["message_status"];
-                $Response["StatusNumber"]= $row["message_number"];
-                $Response["Token"]= isset($Response["Token"]) ? $Response["Token"]:null;
-                $Response["role"]= isset($Response["role"]) ? $Response["role"]:null;
-                $Response["ResponseMessage"]= $row["message"];
+                $Response["Status"]= isset($row["message_status"]) ? $row["message_status"] : null;
+                $Response["StatusNumber"]= isset($row["message_number"])? $row["message_number"] : null ;
+                $Response["Token"]= isset($Response_data["token"]) ? $Response_data["token"] : null ;
+                $Response["role"]= isset($Response_data["role"]) ? $Response_data["role"] : null;
+                $Response["ResponseMessage"]= isset($row["message"]) ? $row["message"] : null;
 
             }
             mysqli_close($conn);
