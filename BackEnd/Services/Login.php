@@ -1,4 +1,6 @@
 <?php
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
     include "..\config.php";
     include "..\Controller\DefaultSettings.php";
     include "..\Controller\Authentication.php";
