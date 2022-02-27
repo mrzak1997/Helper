@@ -58,4 +58,11 @@
   display: flex;
 flex-direction: column;
 }
+.mat-input-element{
+  direction: ltr;
+  text-align: left;
+}
+.mat-form-field-outline .mat-form-field-outline-thick > .mat-form-field-outline-gap{
+  width: 90px;
+}
 

@@ -10,6 +10,7 @@ import { TitleBarComponent } from './Components/shared/title-bar/title-bar.compo
 import { IpcService } from './services/ipc/ipc.service';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon'; 
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatIconModule} from '@angular/material/icon';
     BrowserAnimationsModule,
     MatSliderModule,
     LoginModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule 
     
   ],
   exports:[
