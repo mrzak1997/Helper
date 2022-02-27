@@ -22,8 +22,8 @@
         }
         
         $user["ip"]=$ip;
-        $user["username"] = $data->username != null  ? $data->username : $_POST["username"];
-        $user["password"] = $data->password != null ? $data->password : $_POST["password"];
+        $user["username"] = isset($data->username) != null  ? $data->username : $_POST["username"];
+        $user["password"] = isset($data->password) != null ? $data->password : $_POST["password"];
         
         echo $Authentication->main($user);
     }else{
