@@ -12,6 +12,29 @@
             header('Content-Type: application/json; charset=utf-8');
             return json_encode($answer);
         }
+        public function UserResponse($user_information,$session){
+            if($user_information == null){
+                $answer["Response"] = (object) array(
+                    "status" => false
+                );
+            }else{
+                 $answer["Response"] = (object) array(
+                     "firstname"=>    $user_information["firstname"]  
+                     ,"lastname"=>    $user_information["lastname"]  
+                     ,"username"=>    $user_information["username"] 
+                     ,"Token"=>       $user_information["Token"] 
+                     ,"email"=>       $user_information["email"] 
+                     ,"gender"=>      $user_information["gender"] 
+                     ,"phoneNumber"=> $user_information["phoneNumber"]
+                     ,"isActive"=>    $user_information["isActive"] 
+                     ,"role"=>        $user_information["role"] 
+                     ,"imageLink"=>   $user_information["imageLink"]
+                     ,"session_expire"=>   $session["expire"] 
+                 );
+            }
+            header('Content-Type: application/json; charset=utf-8');
+            return json_encode($answer);
+        }
     }
 
 ?>

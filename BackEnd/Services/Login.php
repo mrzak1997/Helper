@@ -11,7 +11,8 @@
     $json = file_get_contents('php://input');
     $data = json_decode($json);
 
-    if((isset($data->username) && isset($data->password)) || (isset($_POST["username"]) && isset($_POST["password"]))){
+    if((isset($data->username) && isset($data->password)) || 
+        (isset($_POST["username"]) && isset($_POST["password"]))){
         
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];

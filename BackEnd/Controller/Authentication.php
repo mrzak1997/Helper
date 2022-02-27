@@ -3,6 +3,7 @@
     include "MakeResponse.php";
     include "../Model/LoginFunctions.php";
     include "../Model/tools/GetResponseMessage.php";
+    include "../Model/UserInformation.php";
     class Authentication{
 
         public function main($user){
@@ -25,6 +26,14 @@
             return $this->getResponseMessage($CheckPasswordStatus); 
 
             ////sesion
+        }
+        public function getUserinformation($information){
+            $UserInformation = new UserInformation();
+            $MakeResponse = new MakeResponse();
+
+            $session["expire"] = False;
+
+            return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
         } 
         private function isEmpty($user){
             foreach($user as $string){
@@ -33,9 +42,6 @@
                 }
             }
             return true;
-        }
-        private function bestPassword($password){
-
         }
         private function CheckPasswordMethod($user){
             $LoginFunctions = new LoginFunctions();
