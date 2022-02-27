@@ -2,10 +2,15 @@
 .header{
     width: 100%;
     height: 30px;
-    background-color: rgb(187, 173, 173);
+    background-color: #efefef;
     display: flex;
     position: fixed;
     align-items: center;
     padding-left: 20px;
     top: 0px;
+    z-index: 10;
+    color: #6e6e6e;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
 }
+

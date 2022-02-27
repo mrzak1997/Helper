@@ -1,5 +1,68 @@
 .container{
+    background: inherit;
     height: 100vh;
-    width: 100%;
-    background-image: url('../../../../assets/images/dollar.jfif');
+    width: 350px;
+    background-image: url('../../../../assets/images/chart.jpg');
+    position: absolute;
+    background-size: cover;
+    background-position: 31%;
+    background-attachment: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.bg-blure{
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+  width: 290px;
+  height: 360px;
+}
+.bg-blure:before {
+    background: inherit;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 20%);
+    filter: blur(10px);
+}
+.form-group-head{
+  height: 120px;
+  width: 100%;
+  position: relative;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form-group-head mat-icon{
+  font-size: 64px;
+  width: 64px;
+  height: 64px;
+}
+.form-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.form-div form{
+  display: flex;
+flex-direction: column;
+}
+.mat-input-element{
+  direction: ltr;
+  text-align: left;
+}
+.mat-form-field-outline .mat-form-field-outline-thick > .mat-form-field-outline-gap{
+  width: 90px;
+}
+
