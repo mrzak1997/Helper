@@ -22,9 +22,9 @@
         }
         
         $user["ip"]=$ip;
-        $user["username"] = isset($data->username) ?? isset($_POST["username"]);
-        $user["password"] = isset($data->password) ?? isset($_POST["password"]);
-
+        $user["username"] = $data->username != null  ? $data->username : $_POST["username"];
+        $user["password"] = $data->password != null ? $data->password : $_POST["password"];
+        var_dump($user);
         echo $Authentication->main($user);
     }else{
         echo "not found";
