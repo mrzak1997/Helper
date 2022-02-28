@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @use './src/assets/styles/theme.scss';
 /*html, body { height: 100%; }*/
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;  font-family: "Irans-sanse";}
 @font-face{
     font-family:"Yekan";
     src: url('assets/font/Yekan.ttf');
@@ -43,5 +43,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-input-element{
   color: white!important;
 }
+
 //////////////////////////////////////////////
     

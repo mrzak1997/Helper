@@ -1,0 +1,5 @@
+<div *ngFor="let alert of alerts" class="{{cssClass(alert)}}" >
+    <mat-icon class="alert-close" (click)="removeAlert(alert)">close</mat-icon>
+    
+    <span class="alert-text" [innerHTML]="alert.message"></span>
+</div>

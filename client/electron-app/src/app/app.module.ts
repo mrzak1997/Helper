@@ -1,3 +1,4 @@
+import { AlertComponent } from './Components/shared/alert/alert.component';
 import { LoginModule } from './Components/user/login/login.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     TitleBarComponent,
-    
+    AlertComponent
   ],
   imports: [
     BrowserModule,

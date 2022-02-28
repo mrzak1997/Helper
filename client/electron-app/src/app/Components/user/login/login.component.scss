@@ -62,7 +62,16 @@ flex-direction: column;
   direction: ltr;
   text-align: left;
 }
-.mat-form-field-outline .mat-form-field-outline-thick > .mat-form-field-outline-gap{
-  width: 90px;
+.alert{
+  left: 54px;
 }
+
+mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
+  width: 93px!important;
+}
+mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
+  width: 55px!important;
+}
+
+
 

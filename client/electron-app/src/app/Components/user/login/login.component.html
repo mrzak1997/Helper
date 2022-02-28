@@ -5,12 +5,12 @@
        </div>
        <div class="form-div">
             <form [formGroup]="loginForm">
-                <mat-form-field dir='rtl' appearance="outline" >
-                    <mat-label>نام کاربری یا ایمیل </mat-label>
+                <mat-form-field class="form-field-username"  appearance="outline" >
+                    <mat-label style='font-family: "Irans-sanse"'>نام کاربری یا ایمیل </mat-label>
                     <input formControlName="username" matInput >
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label>کلمه عبور</mat-label>
+                    <mat-label style='font-family: "Irans-sanse"'>کلمه عبور</mat-label>
                     <input formControlName="password" type="password" matInput  >
                   </mat-form-field>
                   <button type="submit" (click)="submit()" [disabled]="!loginForm.valid" mat-button color="accent">ورود</button>
