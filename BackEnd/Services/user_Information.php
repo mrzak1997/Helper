@@ -13,8 +13,8 @@
     //if((isset($data->username) && isset($data->Token)) || 
      //   (isset($_GET["username"]) && isset($_GET["Token"]))){
     if(isset($_GET["username"]) && isset($_GET["Token"])){
-        $information["username"] = isset($_GET["username"]) != null  ? $_GET["username"];
-        $information["Token"] = isset($_GET["Token"]) != null ? $_GET["Token"];
+        $information["username"] = isset($_GET["username"]) != null  ? $_GET["username"]:null;
+        $information["Token"] = isset($_GET["Token"]) != null ? $_GET["Token"]:null;
         
         //$information["username"] = isset($data->username) != null  ? $data->username : $_POST["username"];
         //$information["Token"] = isset($data->Token) != null ? $data->Token : $_POST["Token"];
