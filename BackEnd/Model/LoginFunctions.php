@@ -4,11 +4,13 @@
 
         public function CheckPassword($user){
             $config = new config();
+            $Security = new Security();
+    
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
 
-            $Security = new Security();
+            
             
             $login_sql = "SELECT * FROM user WHERE username='".$user['username']."' AND password='".$Security->hashing_string($user['password'])."'";
             
@@ -23,6 +25,8 @@
                     $log["token"]=$row["password"];
                     $log["role"]=$row["role"];
                     $user["user_id"] = $row["user_id"];
+
+                    $Security->set_user_cookie($user['username'],$row["password"]);
 
                     $this->InsertLoginLog($log,$user);
                     return $log;

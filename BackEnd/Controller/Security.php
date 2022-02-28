@@ -13,6 +13,16 @@
         public function hashing_string($string){
             return hash('sha256',"redstar".$string);
         }
+        public function set_user_cookie($username,$Token){
+           // setcookie("username", $username, time() + (86400 * 30), '/');
+           // setcookie("Token", $Token, time() + (86400 * 30), '/');
+           if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
+                setcookie("username", $username, time() + 40, '/');
+                setcookie("Token", $Token, time() + 40, '/');
+            }
+            return true;
+        }
+        
     }
 
 ?>
