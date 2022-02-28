@@ -8,7 +8,6 @@
     $Authentication = new Authentication();
     
     if(isset($_GET["username"]) && isset($_GET["Token"])){
-        
         $information["username"] = isset($_GET["username"]) != null  ? $_GET["username"]:null;
         $information["Token"] = isset($_GET["Token"]) != null ? $_GET["Token"]:null;
         

@@ -4,6 +4,7 @@
     include "../Model/LoginFunctions.php";
     include "../Model/tools/GetResponseMessage.php";
     include "../Model/UserInformation.php";
+    include "../Model/CheckCookie.php";
     class Authentication{
 
         public function main($user){
@@ -30,8 +31,9 @@
         public function getUserinformation($information){
             $UserInformation = new UserInformation();
             $MakeResponse = new MakeResponse();
+            $CheckCookie = new CheckCookie();
 
-            $session["expire"] = False;
+            $session["expire"] = $CheckCookie->CheckUserCookie();
 
             return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
         } 
