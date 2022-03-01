@@ -10,4 +10,8 @@ export class UserService {
   login(body:any){
     return this.api.postWithError('login.php',body)
   }
+
+  getUserInfo(username:string,Token:string){
+    return this.api.get('user_information.php');
+  }
 }

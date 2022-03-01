@@ -1,0 +1,57 @@
+<div class="container" >
+    <div class="bg-blure">
+       <div class="form-group-head">
+        <mat-icon (click)="error()">verified_user</mat-icon>
+       </div>
+       <div class="form-div">
+            <form [formGroup]="registerForm">
+                
+                <mat-form-field class="form-field-username"  appearance="outline" >
+                    <mat-label style='font-family: "Irans-sanse"'>نام کاربری</mat-label>
+                    <input formControlName="username" matInput >
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style='font-family: "Irans-sanse"'>کلمه عبور</mat-label>
+                    <input formControlName="password" type="password" matInput  >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style='font-family: "Irans-sanse"'>ایمیل</mat-label>
+                    <input formControlName="email" type="text" matInput  >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style='font-family: "Irans-sanse"'>شماره موبایل</mat-label>
+                    <input formControlName="phoneNumber" type="text" matInput  >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style='font-family: "Irans-sanse"'>نام</mat-label>
+                    <input formControlName="name" type="text" matInput  >
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label style='font-family: "Irans-sanse"'>نام خانوادگی</mat-label>
+                    <input formControlName="lastName" type="text" matInput  >
+                  </mat-form-field>
+                  <mat-form-field appearance="outline">
+                    <mat-label>جنسیت</mat-label>
+                    <mat-select formControlName="gender">
+                      <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                        {{gender.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <button type="submit" (click)="submit()" [disabled]="!registerForm.valid" mat-button color="accent">ثبت نام</button>
+            </form>
+       </div>
+      
+    </div>
+    <div class="register_div">
+        <p>
+            اگر اکانت دارید  
+        </p>
+        <a routerLink="/register" (click)="goToRegister()" routerLinkActive="active">
+            وارد
+        </a>
+        <p>
+            شوید
+        </p>
+    </div>
+</div>

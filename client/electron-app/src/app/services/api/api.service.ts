@@ -12,7 +12,7 @@ export class ApiService {
   httpOptionsFullResponse: { headers : any; observe : any; } = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
       
      }),
      observe: 'response'
@@ -23,7 +23,7 @@ export class ApiService {
 
    get(path: string): Observable<any> {
     console.warn('api = ' +`${this.url}${path}`)
-   return this.http.get(`${this.url}${path}`,{observe: 'response'})
+   return this.http.get(`${this.url}${path}`,this.httpOptionsFullResponse)
    .pipe(
      catchError(this.handleError<any>('get', []))
      

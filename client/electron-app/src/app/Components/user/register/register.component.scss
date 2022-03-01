@@ -1,6 +1,6 @@
 .container{
     background: inherit;
-    height: 100vh;
+    //height: 100vh;
     width: 350px;
     background-image: url('../../../../assets/images/chart.jpg');
     position: absolute;
@@ -68,7 +68,7 @@ flex-direction: column;
 }
 
 mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
-  width: 93px!important;
+  width: 57px!important;
 }
 mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
   width: 55px!important;
