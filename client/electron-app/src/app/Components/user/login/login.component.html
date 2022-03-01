@@ -16,6 +16,17 @@
                   <button type="submit" (click)="submit()" [disabled]="!loginForm.valid" mat-button color="accent">ورود</button>
             </form>
        </div>
-
+      
+    </div>
+    <div class="register_div">
+        <p>
+            اگر اکانت ندارید  
+        </p>
+        <a routerLink="/register" (click)="goToRegister()" routerLinkActive="active">
+            ثبت نام
+        </a>
+        <p>
+            کنید
+        </p>
     </div>
 </div>

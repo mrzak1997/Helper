@@ -1,3 +1,4 @@
+import { RegisterModule } from './Components/user/register/register.module';
 import { AlertComponent } from './Components/shared/alert/alert.component';
 import { LoginModule } from './Components/user/login/login.module';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ import { IpcService } from './services/ipc/ipc.service';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon'; 
 import { HttpClientModule } from '@angular/common/http';
+import { httpInterceptorProviders } from './helpers';
 
 
 @NgModule({
@@ -27,13 +29,13 @@ import { HttpClientModule } from '@angular/common/http';
     MatSliderModule,
     LoginModule,
     MatIconModule,
-    HttpClientModule 
-    
+    HttpClientModule, 
+    RegisterModule
   ],
   exports:[
    
   ],
-  providers: [IpcService],
+  providers: [httpInterceptorProviders,IpcService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

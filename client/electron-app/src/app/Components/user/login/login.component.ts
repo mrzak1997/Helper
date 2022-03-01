@@ -2,6 +2,9 @@ import { AlertService } from './../../shared/alert/alert.service';
 import { UserService } from './../../../services/api/user.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 //const electron = (<any>window)
 //const electron = (<any>window).require('electron');
 @Component({
@@ -15,7 +18,8 @@ export class LoginComponent implements OnInit {
     password : ['', Validators.required]
     
   })
-  constructor(private fb: FormBuilder,private userApi : UserService, private alertService: AlertService) {
+  constructor(private fb: FormBuilder,private userApi : UserService, private alertService: AlertService,
+    private router: Router, @Inject(PLATFORM_ID) private platformId: any) {
     //electron.ipcRenderer.send('resize-me-please',[355,525]);
    }
 
@@ -27,6 +31,10 @@ export class LoginComponent implements OnInit {
       console.log(res)
       if(res.body.Response.StatusNumber == "200"){
         this.displaySuccess(res.body.Response.ResponseMessage)
+        if (isPlatformBrowser(this.platformId)) {
+          localStorage.setItem('token',res.body.Response.Token)
+          localStorage.setItem('user',this.loginForm.value.username)
+        }
         this.userApi.getUserInfo(this.loginForm.value.username,res.body.Response.Token).subscribe(res=>{
           console.log(res)
         })
@@ -46,5 +54,9 @@ export class LoginComponent implements OnInit {
     this.alertService.error(text,
       { autoClose: true}
     )
+  }
+  goToRegister(){
+    console.log('log');
+    this.router.navigate(['register'])
   }
 }

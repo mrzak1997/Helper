@@ -12,7 +12,6 @@ export class UserService {
   }
 
   getUserInfo(username:string,Token:string){
-    return this.api.get('user_information.php?username='+
-    username+'&Token='+Token);
+    return this.api.get('user_information.php');
   }
 }
