@@ -33,7 +33,7 @@
             $MakeResponse = new MakeResponse();
             $CheckCookie = new CheckCookie();
 
-            $session["expire"] = $CheckCookie->CheckUserCookie();
+            $session["active"] = $CheckCookie->CheckUserCookie();
 
             return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
         } 

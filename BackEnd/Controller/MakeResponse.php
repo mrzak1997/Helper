@@ -29,7 +29,7 @@
                      ,"isActive"=>    $user_information["isActive"] 
                      ,"role"=>        $user_information["role"] 
                      ,"imageLink"=>   $user_information["imageLink"]
-                     ,"session_expire"=>   $session["expire"] 
+                     ,"session_active"=>   $session["active"] 
                  );
             }
             header('Content-Type: application/json; charset=utf-8');
