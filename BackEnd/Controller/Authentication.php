@@ -32,7 +32,7 @@
             $UserInformation = new UserInformation();
             $MakeResponse = new MakeResponse();
             $CheckCookie = new CheckCookie();
-
+            
             $session["active"] = $CheckCookie->CheckUserCookie();
 
             return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
