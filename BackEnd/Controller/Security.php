@@ -16,12 +16,12 @@
         public function set_user_cookie($username,$Token){
            
             
-           if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
+           //if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
                
                 setcookie("username", $username, time() + (86400 * 1), '/',false);
                 setcookie("Token", $Token, time() + (86400 * 1), '/',false);
                    
-            }
+           // }
             return true;
         }
         
