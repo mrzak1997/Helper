@@ -14,15 +14,13 @@
             return hash('sha256',"redstar".$string);
         }
         public function set_user_cookie($username,$Token){
-           // setcookie("username", $username, time() + (86400 * 30), '/');
-           // setcookie("Token", $Token, time() + (86400 * 30), '/');
+           
+            
            if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
-                if(setcookie("username", $username, time() + (86400 * 1), '/')&&
-                setcookie("Token", $Token, time() + (86400 * 1), '/')){
-                    echo "cookie is created";
-                }else{
-                    echo "cookie is not created";
-                }
+               
+                setcookie("username", $username, time() + (86400 * 1), '/',false);
+                setcookie("Token", $Token, time() + (86400 * 1), '/',false);
+                   
             }
             return true;
         }
