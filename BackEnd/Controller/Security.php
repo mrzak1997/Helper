@@ -15,12 +15,22 @@
         }
         public function set_user_cookie($username,$Token){
            
+<<<<<<< HEAD
            //if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
                 
                 setcookie("username", $username, time() + (86400 * 1),'/');
                 setcookie("Token", $Token, time() + (86400 * 1),'/');
                 //var_dump(getallheaders());
             //
+=======
+            
+           //if(!isset($_COOKIE["username"]) || !isset($_COOKIE["Token"])){
+               
+                setcookie("username", $username, time() + (86400 * 1), '/',false);
+                setcookie("Token", $Token, time() + (86400 * 1), '/',false);
+                   
+           // }
+>>>>>>> 54885797f987ef502483beaffb248c3bff50f4ed
             return true;
         }
         
