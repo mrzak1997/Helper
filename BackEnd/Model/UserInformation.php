@@ -38,7 +38,7 @@
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
 
-            $Security = new Security();
+            date_default_timezone_set("Asia/Tehran");
             
             $login_sql = "SELECT * FROM loginlog WHERE username='".$username."' ORDER BY id DESC";
             
@@ -50,7 +50,6 @@
                 if( $row["isActive"]=="1" && 
                     $row["status"]=="successful" &&
                     date('Y-m-d') < $date ){
-                    
                     mysqli_close($conn);
                     return true;
                 }

@@ -36,7 +36,12 @@
                     $this->InsertLoginLog($log,$user);
                     return $log;
                 }
+                $user["username"] = $row["username"];
+                $user['isActive'] = $row["isActive"];
                 $log["status_number"]=405;
+                $log["status"]="error";
+                
+                $this->InsertLoginLog($log,$user);
                 return $log;
             }
             //if username be exist
@@ -63,7 +68,7 @@
             $conn = $GLOBALS['conn_db'];
             
             $insert_Sql = "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
-            VALUES('".$user["username"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',1)";
+            VALUES('".$user["username"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."','".$user['isActive']."')";
             mysqli_query($conn,$insert_Sql);
             
             mysqli_close($conn);

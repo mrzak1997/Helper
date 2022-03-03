@@ -35,8 +35,11 @@
             
             //$session["active"] = $CheckCookie->CheckUserCookie();
             $session["active"]= $UserInformation->check_database_cookie_in_loginglog($information["username"]);
-
-            return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
+            if($session["active"]){
+                return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
+            }
+            return $MakeResponse->UserResponse(null,null);
+            
         } 
         private function isEmpty($user){
             foreach($user as $string){
