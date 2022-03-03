@@ -26,11 +26,10 @@
                 
             $CreateLoginlogTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`loginLog` (
                 `id` INT NOT NULL AUTO_INCREMENT ,
-                `user_id` INT NOT NULL,
+                `username` VARCHAR(30) NOT NULL ,
                 `status` varchar(20) NOT NULL,
                 `status_number` INT NOT NULL,
                 `ip` varchar(30) NOT NULL,
-                `count` INT NOT NULL ,
                 `isActive` BOOLEAN NOT NULL ,
                 `date` TIMESTAMP NOT NULL , 
                 PRIMARY KEY (`id`)) ENGINE = InnoDB";

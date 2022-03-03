@@ -10,9 +10,14 @@
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
 
+            date_default_timezone_set("Asia/Tehran");
+
+            $last_user_date = $this->get_last_user_date($user['username']);
+            $last_password = $Security->hashing_string($user['password'],$last_user_date);
+            $new_password= $Security->hashing_string($user['password'],date('Y-m-d'));
             
+            $login_sql = "SELECT * FROM user WHERE username='".$user['username']."' AND password='".$last_password."'";
             
-            $login_sql = "SELECT * FROM user WHERE username='".$user['username']."' AND password='".$Security->hashing_string($user['password'])."'";
             
             $result = mysqli_query($conn, $login_sql);
             if (mysqli_num_rows($result) > 0) {
@@ -22,12 +27,12 @@
                 if($row["isActive"]==="1"){
                     $log["status_number"]=200;
                     $log["status"]="successful";
-                    $log["token"]=$row["password"];
+                    $log["token"]=$new_password;
                     $log["role"]=$row["role"];
-                    $user["user_id"] = $row["user_id"];
+                    $user["username"] = $row["username"];
 
-                    $Security->set_user_cookie($user['username'],$row["password"]);
-
+                    //$Security->set_user_cookie($user['username'],$row["password"]);
+                    $this->change_password_successful_login($user['username'],$last_password,$new_password);
                     $this->InsertLoginLog($log,$user);
                     return $log;
                 }
@@ -42,7 +47,7 @@
                 $log["status_number"]=450;
                 $log["status"]="error";
                 
-                $user["user_id"] = $row["user_id"];
+                $user["username"] = $row["username"];
 
                 $this->InsertLoginLog($log,$user);
                 return $log;
@@ -51,17 +56,49 @@
             return $log;
             mysqli_close($conn);
         }
-
-        public function InsertLoginLog($log,$user){
+        private function InsertLoginLog($log,$user){
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
             
-            $insert_Sql = "INSERT INTO loginlog (user_id,status,status_number,ip,count,isActive) 
-            VALUES('".$user["user_id"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',0,1)";
+            $insert_Sql = "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
+            VALUES('".$user["username"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."',1)";
             mysqli_query($conn,$insert_Sql);
             
+            mysqli_close($conn);
+        }
+        private function get_last_user_date($username){
+            $config = new config();
+            $Connection = $config->Conncetion();
+            $ConnVar = $GLOBALS['ConnVar'];
+            $conn = $GLOBALS['conn_db'];
+
+            $Security = new Security();
+            
+            $login_sql = "SELECT * FROM loginlog WHERE username='".$username."' And status='successful' ORDER BY id DESC";
+            
+            $result = mysqli_query($conn, $login_sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                //$date =date('Y-m-d', strtotime($row["date"]. ' + 1 days'));
+                mysqli_close($conn);
+                $date = new DateTime($row["date"]);
+                return $date->format("Y-m-d");
+            }
+        }
+        private function change_password_successful_login($username,$last_password,$new_password){
+            $config = new config();
+            $Connection = $config->Conncetion();
+            $ConnVar = $GLOBALS['ConnVar'];
+            $conn = $GLOBALS['conn_db'];
+            
+            
+            $update_Sql = "UPDATE user SET password='".$new_password."' WHERE username='".$username."' AND password='".$last_password."'";
+            
+            mysqli_query($conn,$update_Sql);
+
             mysqli_close($conn);
         }
         

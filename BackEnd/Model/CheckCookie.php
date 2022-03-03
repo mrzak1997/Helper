@@ -16,7 +16,7 @@ class CheckCookie{
 
         $user = $Security->isDangerous($user);
         $sql = "SELECT * FROM user WHERE username='".$user['username']."' AND password='".$user['Token']."'";
-
+        
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             mysqli_close($conn);

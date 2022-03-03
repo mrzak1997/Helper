@@ -15,7 +15,7 @@
         public function UserResponse($user_information,$session){
             if($user_information == null){
                 $answer["Response"] = (object) array(
-                    "status" => false
+                    "status" => "error",
                 );
             }else{
                  $answer["Response"] = (object) array(

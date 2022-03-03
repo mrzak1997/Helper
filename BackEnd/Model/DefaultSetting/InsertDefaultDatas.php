@@ -6,10 +6,16 @@
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
             
+            date_default_timezone_set("Asia/Tehran");
+
             $insert_Sql = "INSERT INTO user (username,password,email,isActive,role) 
-                            VALUES('admin','5c6816859cf688bf1cd1ecc1db631faeb1e6130097d217bf878690e1b07cdd51','admin@gmail.com',1,'admin')";
-            mysqli_query($conn,$insert_Sql);
+                            VALUES('admin','".md5("redstaradmin".date('Y-m-d'))."','admin@gmail.com',1,'admin')";
+            $log_Sql =  "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
+            VALUES('admin','successful','200','',1)";
             
+            mysqli_query($conn,$insert_Sql);
+            mysqli_query($conn,$log_Sql);
+
             mysqli_close($conn);
         }
         public function InsertDefaultResponseMessage(){

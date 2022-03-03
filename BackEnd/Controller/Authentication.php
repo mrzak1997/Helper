@@ -31,9 +31,10 @@
         public function getUserinformation($information){
             $UserInformation = new UserInformation();
             $MakeResponse = new MakeResponse();
-            $CheckCookie = new CheckCookie();
+            //$CheckCookie = new CheckCookie();
             
-            $session["active"] = $CheckCookie->CheckUserCookie();
+            //$session["active"] = $CheckCookie->CheckUserCookie();
+            $session["active"]= $UserInformation->check_database_cookie_in_loginglog($information["username"]);
 
             return $MakeResponse->UserResponse($UserInformation->getUserinformation($information),$session);
         } 

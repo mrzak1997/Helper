@@ -32,5 +32,31 @@
             return $user_information;
 
         }
+        public function check_database_cookie_in_loginglog($username){
+            $config = new config();
+            $Connection = $config->Conncetion();
+            $ConnVar = $GLOBALS['ConnVar'];
+            $conn = $GLOBALS['conn_db'];
+
+            $Security = new Security();
+            
+            $login_sql = "SELECT * FROM loginlog WHERE username='".$username."' ORDER BY id DESC";
+            
+            $result = mysqli_query($conn, $login_sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $date =date('Y-m-d', strtotime($row["date"]. ' + 1 days'));
+                if( $row["isActive"]=="1" && 
+                    $row["status"]=="successful" &&
+                    date('Y-m-d') < $date ){
+                    
+                    mysqli_close($conn);
+                    return true;
+                }
+                mysqli_close($conn);
+                return false;
+            }
+        }   
     }
 ?>
