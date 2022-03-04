@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/api/user.service';
 import { AlertService } from '../../shared/alert/alert.service';
+import { ConfirmPasswordValidator } from './confirm-password.validator';
 interface gender {
   value: string;
   viewValue: string;
@@ -21,10 +22,14 @@ export class RegisterComponent implements OnInit {
     gender:[null],
     username : ['', [Validators.required,Validators.minLength(5)]],
     password : ['', [Validators.required,Validators.minLength(8)]],
+    confirmPassword : ['',Validators.required],
     email : ['', [Validators.required,Validators.pattern('\^[^\s@]+@[^\s@]+\.[^\s@]+$')]],
     phoneNumber : ['', [Validators.required,Validators.pattern('\^09[0-9]{9}$')]],
     
 
+  },
+  {
+    validator: ConfirmPasswordValidator("password", "confirmPassword")
   })
   genders: gender[] = [
     {value: '1', viewValue: 'زن'},
@@ -49,6 +54,12 @@ export class RegisterComponent implements OnInit {
       }
     })
   }
+  passwordMatchingValidatior: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const password = control.get('password');
+    const confirmPassword = control.get('confirmPassword');
+  
+    return password?.value === confirmPassword?.value ? null : { notmatched: true };
+  };
   private displaySuccess(text:string) {
     
       this.alertService.success(text,
