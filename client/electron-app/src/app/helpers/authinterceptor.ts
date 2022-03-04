@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
 } from '@angular/common/http';
-
+import {CookieService} from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { 
    
@@ -17,7 +17,7 @@ import {
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
     constructor( @Inject(PLATFORM_ID)
-    private platformId: any){
+    private platformId: any,private cookieService:CookieService){
         
     }
     
@@ -26,21 +26,14 @@ export class AuthInterceptor implements HttpInterceptor {
         //const currentUser ='Basic ' + btoa('09128026607:123456')
         //'Bearer '
         let token = '';
-        try{
-            if (isPlatformBrowser(this.platformId)) {
-            token = 'Bearer '+ localStorage.getItem('token')
-            }
-        }
-        finally{
-            
-        }
+       
         if (isPlatformBrowser(this.platformId)) {
         
-            if (localStorage.getItem('token')) {
+            if (this.cookieService.check('token')) {
                 let user = ''
-                user = localStorage.getItem('user') || ''
+                user = this.cookieService.get('user') || ''
                 let Token = ''
-                Token = localStorage.getItem('token') || ''
+                Token = this.cookieService.get('token') || ''
                 request = request.clone({
                     setHeaders: { 
                         username: user,
