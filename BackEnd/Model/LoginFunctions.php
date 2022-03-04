@@ -33,7 +33,10 @@
                     $user['isActive'] = $row["isActive"];
 
                     //$Security->set_user_cookie($user['username'],$row["password"]);
-                    $this->change_password_successful_login($user['username'],$last_password,$new_password);
+                    if($last_password != $new_password){
+                        echo "hello";
+                        $this->change_password_successful_login($user['username'],$last_password,$new_password);
+                    }
                     $this->InsertLoginLog($log,$user);
                     return $log;
                 }
