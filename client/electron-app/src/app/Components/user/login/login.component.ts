@@ -5,6 +5,7 @@ import { FormBuilder,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import {CookieService} from 'ngx-cookie-service';
 //const electron = (<any>window)
 //const electron = (<any>window).require('electron');
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     
   })
   constructor(private fb: FormBuilder,private userApi : UserService, private alertService: AlertService,
-    private router: Router, @Inject(PLATFORM_ID) private platformId: any) {
+    private router: Router, @Inject(PLATFORM_ID) private platformId: any,private cookieService:CookieService) {
     //electron.ipcRenderer.send('resize-me-please',[355,525]);
    }
 
@@ -32,8 +33,10 @@ export class LoginComponent implements OnInit {
       if(res.body.Response.StatusNumber == "200"){
         this.displaySuccess(res.body.Response.ResponseMessage)
         if (isPlatformBrowser(this.platformId)) {
-          localStorage.setItem('token',res.body.Response.Token)
-          localStorage.setItem('user',this.loginForm.value.username)
+          
+          
+          this.cookieService.set('token',res.body.Response.Token,1)
+          this.cookieService.set('user',this.loginForm.value.username,1)
         }
         this.userApi.getUserInfo(this.loginForm.value.username,res.body.Response.Token).subscribe(res=>{
           console.log(res)
