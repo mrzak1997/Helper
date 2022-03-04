@@ -30,6 +30,7 @@
                     $log["token"]=$new_password;
                     $log["role"]=$row["role"];
                     $user["username"] = $row["username"];
+                    $user['isActive'] = $row["isActive"];
 
                     //$Security->set_user_cookie($user['username'],$row["password"]);
                     $this->change_password_successful_login($user['username'],$last_password,$new_password);
@@ -53,6 +54,7 @@
                 $log["status"]="error";
                 
                 $user["username"] = $row["username"];
+                $user['isActive'] = $row["isActive"];
 
                 $this->InsertLoginLog($log,$user);
                 return $log;
