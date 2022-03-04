@@ -2,6 +2,7 @@
     include "Security.php";
     include "MakeResponse.php";
     include "../Model/LoginFunctions.php";
+    include "../Model/RegisterFunctions.php";
     include "../Model/tools/GetResponseMessage.php";
     include "../Model/UserInformation.php";
     include "../Model/CheckCookie.php";
@@ -20,7 +21,6 @@
             //this method checking $user not be Dangerous
             $Security = new Security();
             $user=$Security->isDangerous($user);
-
             //
             $CheckPasswordStatus = $this->CheckPasswordMethod($user);
             
@@ -41,6 +41,23 @@
             return $MakeResponse->UserResponse(null,null);
             
         } 
+        public function user_register($user,$user_optional){
+
+            $RegisterFunctions=new RegisterFunctions();
+
+            if(!$this->isEmpty($user)){
+                $Response_data["status_number"]=400;
+                return $this->getResponseMessage($Response_data);
+            }
+            $user["firstname"] = $user_optional["firstname"];
+            $user["lastname"]  =  $user_optional["lastname"];
+            $user["gender"]    = $user_optional["gender"];
+            
+            $Security = new Security();
+            $user=$Security->isDangerous($user);
+
+            return $this->getResponseMessage($RegisterFunctions->main($user));            
+        }
         private function isEmpty($user){
             foreach($user as $string){
                 if($string == null){
@@ -57,7 +74,7 @@
             $GetResponseMessage = new GetResponseMessage();
             $MakeResponse = new MakeResponse();
 
-            return $MakeResponse->LoginResponse($GetResponseMessage ->GetResponse($Response_data)); 
+            return $MakeResponse->globalResponse($GetResponseMessage ->GetResponse($Response_data)); 
         }
         
     }

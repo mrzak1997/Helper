@@ -8,8 +8,8 @@
             
             date_default_timezone_set("Asia/Tehran");
 
-            $insert_Sql = "INSERT INTO user (username,password,email,isActive,role) 
-                            VALUES('admin','".md5("redstaradmin".date('Y-m-d h:i:sa'))."','admin@gmail.com',1,'admin')";
+            $insert_Sql = "INSERT INTO user (username,password,email,phoneNumber,isActive,role) 
+                            VALUES('admin','".md5("redstaradmin".date('Y-m-d h:i:sa'))."','admin@gmail.com','09000000',1,'admin')";
             $log_Sql =  "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
             VALUES('admin','successful','200','',1)";
             
@@ -22,7 +22,7 @@
             $DefaultDatas=[
                 "login"=>[
                     1=>[
-                        "loc_name" => "login",
+                        "loc_name" => "global",
                         "message_status" => "error",
                         "message_number" => 400,
                         "message" => "اطلاعات را کامل وارد کنید"
@@ -43,13 +43,37 @@
                         "loc_name" => "login",
                         "message_status" => "error",
                         "message_number" => 450,
-                        "message" => "کلمه عبور شما درست نمی باشد"
+                        "message" => "کلمه عبور شما اشتباه می باشد"
                     ],
                     5=>[
                         "loc_name" => "login",
                         "message_status" => "successful",
                         "message_number" => 200,
                         "message" => "ورود شما با موفقیت انجام شد"
+                    ],
+                    6=>[
+                        "loc_name" => "register",
+                        "message_status" => "successful",
+                        "message_number" => 700,
+                        "message" => "ثبت نام شما با موفقیت انجام شد"
+                    ],
+                    7=>[
+                        "loc_name" => "register",
+                        "message_status" => "error",
+                        "message_number" => 750,
+                        "message" => "کاربر با این نام وجود دارد"
+                    ],
+                    8=>[
+                        "loc_name" => "register",
+                        "message_status" => "error",
+                        "message_number" => 751,
+                        "message" => " شماره همراه موجود است"
+                    ],
+                    9=>[
+                        "loc_name" => "register",
+                        "message_status" => "error",
+                        "message_number" => 752,
+                        "message" => " ایمیل موجود است"
                     ]
                 ]
             ];

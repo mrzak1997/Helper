@@ -65,7 +65,7 @@
             return $log;
             mysqli_close($conn);
         }
-        private function InsertLoginLog($log,$user){
+        public function InsertLoginLog($log,$user){
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];

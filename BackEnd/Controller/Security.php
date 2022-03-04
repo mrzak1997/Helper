@@ -3,9 +3,9 @@
         public function isDangerous($array){
             $new_array=$array;
             $counter=0;
-            foreach($array as $string){
-                $new_array[$counter]=htmlspecialchars($string);
-                $new_array[$counter]=strip_tags($new_array[$counter]);
+            foreach($array as $key => $string){
+                $new_array[$key]=htmlspecialchars($string);
+                $new_array[$key]=strip_tags($new_array[$key]);
                 $counter++;
             }
             return $new_array;
