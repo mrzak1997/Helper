@@ -14,7 +14,7 @@
 
             $last_user_date = $this->get_last_user_date($user['username']);
             $last_password = $Security->hashing_string($user['password'],$last_user_date);
-            $new_password= $Security->hashing_string($user['password'],date('Y-m-d'));
+            $new_password= $Security->hashing_string($user['password'],date('Y-m-d h:i:sa'));
             
             $login_sql = "SELECT * FROM user WHERE username='".$user['username']."' AND password='".$last_password."'";
             
@@ -92,7 +92,7 @@
                 //$date =date('Y-m-d', strtotime($row["date"]. ' + 1 days'));
                 mysqli_close($conn);
                 $date = new DateTime($row["date"]);
-                return $date->format("Y-m-d");
+                return $date->format("Y-m-d h:i:sa");
             }
         }
         private function change_password_successful_login($username,$last_password,$new_password){

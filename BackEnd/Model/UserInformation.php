@@ -46,10 +46,10 @@
 
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_assoc($result);
-                $date =date('Y-m-d', strtotime($row["date"]. ' + 1 days'));
+                $date =date('Y-m-d h:i:sa', strtotime($row["date"]. ' + 1 days'));
                 if( $row["isActive"]=="1" && 
                     $row["status"]=="successful" &&
-                    date('Y-m-d') < $date ){
+                    date('Y-m-d h:i:sa') < $date ){
                     mysqli_close($conn);
                     return true;
                 }

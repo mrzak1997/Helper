@@ -9,7 +9,7 @@
             date_default_timezone_set("Asia/Tehran");
 
             $insert_Sql = "INSERT INTO user (username,password,email,isActive,role) 
-                            VALUES('admin','".md5("redstaradmin".date('Y-m-d'))."','admin@gmail.com',1,'admin')";
+                            VALUES('admin','".md5("redstaradmin".date('Y-m-d h:i:sa'))."','admin@gmail.com',1,'admin')";
             $log_Sql =  "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
             VALUES('admin','successful','200','',1)";
             
