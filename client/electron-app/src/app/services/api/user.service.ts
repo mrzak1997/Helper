@@ -14,4 +14,7 @@ export class UserService {
   getUserInfo(username:string,Token:string){
     return this.api.get('user_information.php');
   }
+  register(body:any){
+    return this.api.postWithError('register.php',body)
+  }
 }

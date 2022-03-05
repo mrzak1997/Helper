@@ -18,13 +18,13 @@ export class RegisterComponent implements OnInit {
   '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
   registerForm = this.fb.group({
     name: [''],
-    lastName: [''],
+    lastname: [''],
     gender:[null],
     username : ['', [Validators.required,Validators.minLength(5)]],
     password : ['', [Validators.required,Validators.minLength(8)]],
     confirmPassword : ['',Validators.required],
     email : ['', [Validators.required,Validators.pattern('\^[^\s@]+@[^\s@]+\.[^\s@]+$')]],
-    phoneNumber : ['', [Validators.required,Validators.pattern('\^09[0-9]{9}$')]],
+    phone_number : ['', [Validators.required,Validators.pattern('\^09[0-9]{9}$')]],
     
 
   },
@@ -42,24 +42,17 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(){
-    this.userApi.login(this.registerForm.value).subscribe(res=>{
+    this.userApi.register(this.registerForm.value).subscribe(res=>{
       console.log(res)
       if(res.body.Response.StatusNumber == "200"){
         this.displaySuccess(res.body.Response.ResponseMessage)
-        this.userApi.getUserInfo(this.registerForm.value.username,res.body.Response.Token).subscribe(res=>{
-          console.log(res)
-        })
+        
       }else{
         this.displayFailure(res.body.Response.ResponseMessage)
       }
     })
   }
-  passwordMatchingValidatior: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const password = control.get('password');
-    const confirmPassword = control.get('confirmPassword');
   
-    return password?.value === confirmPassword?.value ? null : { notmatched: true };
-  };
   private displaySuccess(text:string) {
     
       this.alertService.success(text,
