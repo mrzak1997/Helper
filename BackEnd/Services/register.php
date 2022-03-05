@@ -28,9 +28,9 @@
         $user["email"] = isset($data->email) != null  ? $data->email : $_POST["email"];
         $user["phoneNumber"] = isset($data->phone_number) != null ? $data->phone_number : $_POST["phone_number"];
 
-        $user_optional["firstname"] = isset($data->firstname) != null ? $data->firstname : $_POST["firstname"];
-        $user_optional["lastname"] = isset($data->lastname) != null ? $data->lastname : $_POST["lastname"];
-        $user_optional["gender"] = isset($data->gender) != null ? $data->gender : $_POST["gender"];
+        $user_optional["firstname"] = isset($data->firstname) != null ? $data->firstname : $_POST["firstname"] != null ? $_POST["firstname"] : null;
+        $user_optional["lastname"] = isset($data->lastname) != null ? $data->lastname : $_POST["lastname"] != null ? $_POST["lastname"] : null;
+        $user_optional["gender"] = isset($data->gender) != null ? $data->gender : $_POST["gender"] != null ? $_POST["gender"] : null;
         
         echo $Authentication->user_register($user,$user_optional);
     }else{
