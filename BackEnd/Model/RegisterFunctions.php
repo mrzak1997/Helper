@@ -3,7 +3,7 @@
     class RegisterFunctions{
         public function main($user)
         {
-            
+            $log["status_loc"]="register";
             //exist user
             if($this->checking_exist('username',$user["username"])){
                 $log["status_number"]=750;
@@ -71,8 +71,8 @@
             
             if(mysqli_query($conn,$insert_Sql) && mysqli_query($conn,$log_Sql)){
                 mysqli_close($conn);
-
-                $log["status_number"]=700;
+                $log["status_loc"]="register";
+                $log["status_number"]=201;
                 $log["token"]=$user["token"];
                 $log["role"]='user';
 

@@ -6,7 +6,7 @@
             $ConnVar = $GLOBALS['ConnVar'];
             $conn = $GLOBALS['conn_db'];
 
-            $sql = "SELECT * FROM response_message WHERE message_number=".$Response_data['status_number']."";
+            $sql = "SELECT * FROM response_message WHERE message_number=".$Response_data['status_number']." AND message_loc='".$Response_data['status_loc']."'";
             
             $result = mysqli_query($conn,$sql);
 
