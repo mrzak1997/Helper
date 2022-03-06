@@ -17,9 +17,9 @@ export class RegisterComponent implements OnInit {
   re =
   '/^[^\s@]+@[^\s@]+\.[^\s@]+$/';
   registerForm = this.fb.group({
-    name: [''],
+    firstname: [''],
     lastname: [''],
-    gender:[null],
+    gender:[''],
     username : ['', [Validators.required,Validators.minLength(5)]],
     password : ['', [Validators.required,Validators.minLength(8)]],
     confirmPassword : ['',Validators.required],
@@ -44,9 +44,9 @@ export class RegisterComponent implements OnInit {
   submit(){
     this.userApi.register(this.registerForm.value).subscribe(res=>{
       console.log(res)
-      if(res.body.Response.StatusNumber == "200"){
+      if(res.body.Response.StatusNumber == "201"){
         this.displaySuccess(res.body.Response.ResponseMessage)
-        
+        this.router.navigate(['dashboard']);
       }else{
         this.displayFailure(res.body.Response.ResponseMessage)
       }
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
     )
   }
   goToRegister(){
-    console.log('log');
+    
     this.router.navigate([''])
   }
   error(){

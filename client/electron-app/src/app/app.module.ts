@@ -1,3 +1,4 @@
+import { DashboardModule } from './Components/dashboard/dashboard.module';
 import { RegisterModule } from './Components/user/register/register.module';
 import { AlertComponent } from './Components/shared/alert/alert.component';
 import { LoginModule } from './Components/user/login/login.module';
@@ -30,7 +31,8 @@ import { httpInterceptorProviders } from './helpers';
     LoginModule,
     MatIconModule,
     HttpClientModule, 
-    RegisterModule
+    RegisterModule,
+    DashboardModule
   ],
   exports:[
    
