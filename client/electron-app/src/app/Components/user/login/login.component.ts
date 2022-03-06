@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
   private displaySuccess(text:string) {
     
       this.alertService.success(text,
-      
+        { autoClose: true,
+          keepAfterRouteChange: true}
       )
     
   }

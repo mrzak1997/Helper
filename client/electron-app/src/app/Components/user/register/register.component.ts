@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       console.log(res)
       if(res.body.Response.StatusNumber == "201"){
         this.displaySuccess(res.body.Response.ResponseMessage)
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['']);
       }else{
         this.displayFailure(res.body.Response.ResponseMessage)
       }
