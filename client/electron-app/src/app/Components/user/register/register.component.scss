@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding: 20px 0;
 }
 .bg-blure{
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
@@ -73,7 +74,24 @@ mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
 mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
   width: 55px!important;
 }
-
+mat-form-field:nth-child(3)::ng-deep div.mat-form-field-outline-gap{
+  width: 75px!important;
+}
+mat-form-field:nth-child(4)::ng-deep div.mat-form-field-outline-gap{
+  width: 40px!important;
+}
+mat-form-field:nth-child(5)::ng-deep div.mat-form-field-outline-gap{
+  width: 70px!important;
+}
+mat-form-field:nth-child(6)::ng-deep div.mat-form-field-outline-gap{
+  width: 21px!important;
+}
+mat-form-field:nth-child(7)::ng-deep div.mat-form-field-outline-gap{
+  width: 61px!important;
+}
+mat-form-field:nth-child(8)::ng-deep div.mat-form-field-outline-gap{
+  width: 41px!important;
+}
 .register_div{
   color: white;
   padding-top: 10px;

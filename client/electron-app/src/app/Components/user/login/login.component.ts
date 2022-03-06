@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         this.userApi.getUserInfo(this.loginForm.value.username,res.body.Response.Token).subscribe(res=>{
           console.log(res)
         })
+        this.router.navigate(['dashboard']);
       }else{
         this.displayFailure(res.body.Response.ResponseMessage)
       }
