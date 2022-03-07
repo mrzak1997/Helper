@@ -54,7 +54,7 @@
                     6=>[
                         "loc_name" => "register",
                         "message_status" => "successful",
-                        "message_number" => 700,
+                        "message_number" => 201,
                         "message" => "ثبت نام شما با موفقیت انجام شد"
                     ],
                     7=>[

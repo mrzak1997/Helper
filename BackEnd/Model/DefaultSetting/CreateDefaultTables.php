@@ -49,12 +49,30 @@
                 `date` TIMESTAMP NOT NULL , 
                 PRIMARY KEY (`message_id`)) ENGINE = InnoDB";    
 
+            $CreateChartProjectTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`chart_project` (
+                    `project_id` INT NOT NULL AUTO_INCREMENT ,
+                    `project_name` varchar(100) NOT NULL,
+                    `username` varchar(30) NOT NULL,
+                    `date` TIMESTAMP NOT NULL , 
+                    PRIMARY KEY (`project_id`)) ENGINE = InnoDB";  
+            $CreateChartNodesTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`chart_nodes` (
+                `node_id` INT NOT NULL AUTO_INCREMENT ,
+                `node_type` int NOT NULL,
+                `node_previous` int NOT NULL,
+                `node_next` int NOT NULL,
+                `node_text` varchar(30),
+                `project_name`  varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                `date` TIMESTAMP NOT NULL , 
+                PRIMARY KEY (`node_id`)) ENGINE = InnoDB";  
+
             $sqls=[
                 $Create_Database
                 ,$CreateUserTable
                 ,$CreateLoginlogTable
                 ,$CreateRolePermitionTable
                 ,$CreateResponseMessageTable
+                ,$CreateChartProjectTable
+                ,$CreateChartNodesTable
             ];
             
             foreach($sqls as $sql){

@@ -12,6 +12,7 @@
 
             //if username and password be empty return 400
             if(!$this->isEmpty($user)){
+                $Response["status_loc"]="login";
                 $Response["status_number"]=400;
                 $Response["Token"]=null;
                 $Response["role"]=null;
@@ -23,7 +24,7 @@
             $user=$Security->isDangerous($user);
             //
             $CheckPasswordStatus = $this->CheckPasswordMethod($user);
-            
+            $CheckPasswordStatus["status_loc"]="login";
             return $this->getResponseMessage($CheckPasswordStatus); 
 
             ////sesion
@@ -44,8 +45,9 @@
         public function user_register($user,$user_optional){
 
             $RegisterFunctions=new RegisterFunctions();
-
+            $Response_data["status_loc"]="register";
             if(!$this->isEmpty($user)){
+                
                 $Response_data["status_number"]=400;
                 return $this->getResponseMessage($Response_data);
             }
