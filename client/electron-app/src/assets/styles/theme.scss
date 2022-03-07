@@ -54,3 +54,5 @@ $my-theme: mat.define-light-theme((
 @include mat.all-component-themes($my-theme);
 @include mat.strong-focus-indicators-theme(purple);
 
+$menu_bg: #f3f3f3;
+
