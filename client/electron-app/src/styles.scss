@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @use './src/assets/styles/theme.scss';
 :root{
-  --menu-bg: #f3f3f3;
+  --menu-bg: #f8f8f8;
   --menu-item-color: #404040;
   --amber: #FFBF00;
+  --dark-cyan: #048d8d;
+  --dark-blue:#010630;
 }
 /*html, body { height: 100%; }*/
 body { margin: 0;  font-family: "Irans-sanse";}
