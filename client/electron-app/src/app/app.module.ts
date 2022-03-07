@@ -15,7 +15,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatIconModule} from '@angular/material/icon'; 
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './helpers';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { httpInterceptorProviders } from './helpers';
     MatIconModule,
     HttpClientModule, 
     RegisterModule,
-    DashboardModule
+    DashboardModule,
+    MatGridListModule
   ],
   exports:[
    
