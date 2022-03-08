@@ -9,7 +9,7 @@
         height: 100%;
         flex-shrink: 0;
         background-color: var(--menu-bg);
-        overflow: hidden;
+        
         .line{
             width: 80%;
             background-color: black;
@@ -61,6 +61,7 @@
     .sidebar_closed{
         transition: all 0.5s ease-in;
         width: 70px;
+        overflow: hidden;
         .menu_item{
             padding-right: 10px;
         }
@@ -124,6 +125,76 @@
             }
         }
         
+      .for_scroll{
+        
+        margin: 25px;
+        overflow-y: scroll;
+        max-height: 570px;
+        .shortcuts_holder{
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+          margin: 15px;
+          height: 85px;
+          .shortcut_card{
+            border-radius: 25px;
+            height: 70px;
+            width: 210px;
+            background: linear-gradient(191deg, rgba(255,191,0,1) 0%, rgba(34,193,195,1) 100%);
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all .5s ease-out; 
+            box-shadow: 0px 0px 0px gainsboro;
+            overflow: hidden;
+          }
+          .shortcut_card:hover{
+            box-shadow: 0px 5px 11px gainsboro;
+            transition: all .5s ease-out; 
+            height: 75px;
+            width: 215px;
+          }
+        }
+        .component_holder{
+          border-radius: 25px;
+          background-color: var(--menu-bg);
+          
+          padding: 15px;
+        }
+        
+        
+      }
+      .for_scroll::-webkit-scrollbar {
+        width: 10px;
+        border-radius: 5px;
+        
+      }
+      
+      /* Track */
+      .for_scroll::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+        border-radius: 5px;
+        margin: 15px ;
+      }
+       
+      /* Handle */
+      .for_scroll::-webkit-scrollbar-thumb {
+        background-color: var(--amber); 
+        border-radius: 5px;
+        -webkit-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+      }
+      
+      /* Handle on hover */
+      .for_scroll::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dark-amber); 
+        -webkit-transition: background-color 500ms linear;
+        -ms-transition: background-color 500ms linear;
+        transition: background-color 500ms linear;
+      }
     }
 }
 

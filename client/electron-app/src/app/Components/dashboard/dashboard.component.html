@@ -1,10 +1,10 @@
 <div class="container">
-    <div  [ngClass]="{'sidebar' : true,'sidebar_closed' : menu_closed}">
+    <div  [ngClass]="{'sidebar' : true,'sidebar_closed' : menu_closed}" [ngStyle]="{'overflow': overflow}" id="sidebar">
         <div class="header">
             لوگو
         </div>
         <div class="line"></div>
-        <div class="body">
+        <div class="body" >
            
             <div class="menu">
                 <div *ngFor="let item of menu_item;index as i" class="menu_item">
@@ -23,7 +23,7 @@
     <div class="inner_container">
         <div class="header">
             <div class="bruger_holder" [classList]="" (click)="close_menu()">
-                <svg class="ham hamRotate ham8 active" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
+                <svg class="ham hamRotate ham8" viewBox="0 0 100 100" width="80" onclick="this.classList.toggle('active')">
                     <path
                           class="line top"
                           d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20" />
@@ -34,6 +34,26 @@
                           class="line bottom"
                           d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20" />
                   </svg>
+            </div>
+        </div>
+        
+        <div class="for_scroll">
+            <div class="shortcuts_holder">
+                <div class="shortcut_card">
+                    فلوچارت های من
+                </div>
+                <div class="shortcut_card">
+                    فلوچارت های من
+                </div>
+                <div class="shortcut_card">
+                    فلوچارت های من
+                </div>
+                <div class="shortcut_card">
+                    فلوچارت های من
+                </div>
+            </div>
+            <div class="component_holder">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
