@@ -65,12 +65,12 @@
                 `date` TIMESTAMP NOT NULL , 
                 PRIMARY KEY (`node_id`)) ENGINE = InnoDB"; 
             $CreateMenuTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`menu_items` (
-                    `item_id` INT NOT NULL AUTO_INCREMENT ,
-                    `primary_item_name` varchar(30) NOT NULL,
-                    `item_name` varchar(30) NOT NULL,
-                    `item_image_link` varchar(500) NOT NULL,
+                    `id` INT NOT NULL AUTO_INCREMENT ,
+                    `parent_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                    `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                    `icon` varchar(25) NOT NULL,
                     `date` TIMESTAMP NOT NULL , 
-                    PRIMARY KEY (`item_id`)) ENGINE = InnoDB"; 
+                    PRIMARY KEY (`id`)) ENGINE = InnoDB"; 
 
             $sqls=[
                 $Create_Database

@@ -1,6 +1,11 @@
 <?php
     class InsertDefaultDatas{
-        public function InsertDefaultUser(){
+        public function main(){
+            $this->InsertDefaultUser();
+            $this->InsertDefaultResponseMessage();
+            $this->InsertDefaultMenuItem();
+        }
+        private function InsertDefaultUser(){
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
@@ -18,7 +23,37 @@
 
             mysqli_close($conn);
         }
-        public function InsertDefaultResponseMessage(){
+        private function InsertDefaultMenuItem(){
+            $config = new config();
+            $Connection = $config->Conncetion();
+            $ConnVar = $GLOBALS['ConnVar'];
+            $conn = $GLOBALS['conn_db'];
+            
+            $menu_items = [
+                1=>[
+                    "parent_name" => "اصلی",
+                    "name" => "فلوچارت",
+                    "icon" => "table_chart"
+                ],
+                2=>[
+                    "parent_name" => "فلوچارت",
+                    "name" => "ویرایش و حذف",
+                    "icon" => "edit_attributes"
+                ],
+                3=>[
+                    "parent_name" => "فلوچارت",
+                    "name" => "نمایش",
+                    "icon" => "list"
+                ]
+            ];
+
+            foreach($menu_items as $items_key => $item){
+                $this->RunSql("INSERT INTO menu_items (parent_name,name,icon) 
+                        VALUES('".$item["parent_name"]."','".$item["name"]."','".$item["icon"]."')");
+           
+            }
+        }
+        private function InsertDefaultResponseMessage(){
             $DefaultDatas=[
                 "login"=>[
                     1=>[
@@ -80,13 +115,13 @@
 
             foreach($DefaultDatas as $loc_name){
                 foreach($loc_name as $item){
-                        $this->ResponseMessageSql("INSERT INTO response_message (message_status,message_loc,message_number,message) 
+                        $this->RunSql("INSERT INTO response_message (message_status,message_loc,message_number,message) 
                                 VALUES('".$item["message_status"]."','".$item["loc_name"]."','".$item["message_number"]."','".$item["message"]."')");
                    
                 }
             }
         }
-        private function ResponseMessageSql($sql){
+        private function RunSql($sql){
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];

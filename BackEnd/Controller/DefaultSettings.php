@@ -19,8 +19,9 @@ try {
     }
     if($CreateDefaultTables->CreatetTable()){
         $CreatedTableFalg = true;
-        $InsertDefaultDatas->InsertDefaultUser();
-        $InsertDefaultDatas->InsertDefaultResponseMessage();
+
+        $InsertDefaultDatas->main();
+
         echo "Default Settings Created";
     } 
     
