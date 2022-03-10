@@ -57,7 +57,7 @@
                 }
                 
                 //var_dump($all_data);
-                return json_encode($all_data[0],JSON_UNESCAPED_UNICODE);
+                return json_encode($all_data,JSON_UNESCAPED_UNICODE);
             }
             mysqli_close($conn);
 
