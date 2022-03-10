@@ -1,7 +1,4 @@
 <?php
-
-use function PHPSTORM_META\type;
-
     class GetMenuItems{
         public function getItems(){
             $config = new config();
@@ -60,7 +57,7 @@ use function PHPSTORM_META\type;
                 }
                 
                 //var_dump($all_data);
-                return json_encode($all_data);
+                return json_encode($all_data[0],JSON_UNESCAPED_UNICODE);
             }
             mysqli_close($conn);
 
