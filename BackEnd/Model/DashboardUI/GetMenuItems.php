@@ -18,9 +18,7 @@
             if (mysqli_num_rows($result) > 0) {
                 while($row = mysqli_fetch_assoc($result)){
                     array_push($database_data,$row);
-                    //var_dump($database_data);
                     if($row["parent_name"]==""){
-                        //var_dump($row);
                         $new_arr["name"] = $row["name"];
                         $new_arr["icon"] = $row["icon"];
                         $new_arr["sub_items"] = [];
@@ -32,17 +30,12 @@
                         
                     }
                 }
-                //$database_data = $database_data[0][0];
-                //var_dump($database_data);
-                //var_dump($all_data);
-
+                //assigne subitem to parent
                 foreach($database_data as $key => $db_data){
                     if($db_data["parent_name"]!=""){
-                        //var_dump($db_data);
                         for($i=0;$i < sizeof($all_data);$i++){
                             if($db_data["parent_name"] == $all_data[$i]['name']){
-                                // echo "\n1.db =".$db_data["parent_name"];
-                                // echo "\n2.data =".$all_data[$i]['name'];   
+
                                 $new_arr["name"] = $db_data["name"];
                                 $new_arr["icon"] = $db_data["icon"];
                                 $new_arr["sub_items"] = "";
@@ -56,7 +49,6 @@
                     }
                 }
                 
-                //var_dump($all_data);
                 return json_encode($all_data,JSON_UNESCAPED_UNICODE);
             }
             mysqli_close($conn);
