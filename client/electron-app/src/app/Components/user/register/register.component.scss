@@ -1,7 +1,7 @@
 .container{
     background: inherit;
     //height: 100vh;
-    width: 350px;
+    width: 565px;
     background-image: url('../../../../assets/images/chart.jpg');
     position: absolute;
     background-size: cover;
@@ -22,7 +22,7 @@
   z-index: 1;
   background: inherit;
   overflow: hidden;
-  width: 290px;
+  width: 500px;
   padding-bottom: 20px;
 }
 .bg-blure:before {
@@ -58,7 +58,43 @@
 }
 .form-div form{
   display: flex;
-flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  .form_col{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    
+  }
+  .form_col:nth-child(1){
+    mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
+      width: 57px!important;
+    }
+    mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
+      width: 40px!important;
+    }
+    mat-form-field:nth-child(3)::ng-deep div.mat-form-field-outline-gap{
+      width: 55px!important;
+    }
+    mat-form-field:nth-child(4)::ng-deep div.mat-form-field-outline-gap{
+      width: 75px!important;
+    }
+  }
+  .form_col:nth-child(2){
+    mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
+      width: 70px!important;
+    }
+    mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
+      width: 21px!important;
+    }
+    mat-form-field:nth-child(3)::ng-deep div.mat-form-field-outline-gap{
+      width: 61px!important;
+    }
+    mat-form-field:nth-child(4)::ng-deep div.mat-form-field-outline-gap{
+      width: 41px!important;
+    }
+  }
 }
 .mat-input-element{
   direction: ltr;
@@ -68,30 +104,8 @@ flex-direction: column;
   left: 54px;
 }
 
-mat-form-field:nth-child(1)::ng-deep div.mat-form-field-outline-gap{
-  width: 57px!important;
-}
-mat-form-field:nth-child(2)::ng-deep div.mat-form-field-outline-gap{
-  width: 55px!important;
-}
-mat-form-field:nth-child(3)::ng-deep div.mat-form-field-outline-gap{
-  width: 75px!important;
-}
-mat-form-field:nth-child(4)::ng-deep div.mat-form-field-outline-gap{
-  width: 40px!important;
-}
-mat-form-field:nth-child(5)::ng-deep div.mat-form-field-outline-gap{
-  width: 70px!important;
-}
-mat-form-field:nth-child(6)::ng-deep div.mat-form-field-outline-gap{
-  width: 21px!important;
-}
-mat-form-field:nth-child(7)::ng-deep div.mat-form-field-outline-gap{
-  width: 61px!important;
-}
-mat-form-field:nth-child(8)::ng-deep div.mat-form-field-outline-gap{
-  width: 41px!important;
-}
+
+
 .register_div{
   color: white;
   padding-top: 10px;

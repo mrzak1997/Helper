@@ -33,28 +33,81 @@
                 .menu_item{
                     width: 100%;
                     height: 50px;
-                    cursor: pointer;
+                    user-select: none;
                     display: flex;
-                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    justify-content: flex-end;
                     align-items: center;
                     color: var(--menu-item-color);
-                    border-right: 0px solid var(--amber);
+                    
                     position: relative;
-                    transition: all .5s ease-out; 
+                    border-right: 0px solid var(--amber);
+                    transition: all .2s ease-out; 
+                    .menu_item_stuff{
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      width: 100%;
+                      height: 50px;
+                      transition: all .2s ease-out; 
+                      border-right: 0px solid var(--amber);
+                      background-color: var(--menu-bg);
+                      cursor: pointer;
+                      .chevron_left{
+                        transition: all .2s ease-out; 
+                      }
+                    }
+                    
+                    .menu_item_stuff:hover{
+                      border-right: 6px solid var(--amber);
+                      box-shadow: 0px 5px 11px gainsboro;
+                      background-color: white;
+                      z-index: 5;
+                     
+                      //border-radius: 50px 0 0 50px;
+                      
+                    }
+
+                    .menu_item_stuff.down{
+                      .chevron_left{
+                        transform: rotate(-90deg);
+                      }
+                    }
+                    .submenu_item{
+                      width: 196px;
+                      height: 50px;
+                      cursor: pointer;
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      color: var(--menu-item-color);
+                      border-right: 2px dashed var(--amber);
+                      background-color: var(--menu-bg);
+                      opacity: 0;
+                      z-index: -5;
+                      transition: all .2s ease-out; 
+                      cursor: pointer;
+                    }
+                    .submenu_item:hover{
+                      border-right: 6px solid var(--amber);
+                      box-shadow: 0px 5px 11px gainsboro;
+                      background-color: white;
+                      z-index: 5;
+                      //border-radius: 50px 0 0 50px;
+                    }
+
+                    
                 }
-                .menu_item:hover{
-                    border-right: 6px solid var(--amber);
-                    box-shadow: 0px 5px 11px gainsboro;
-                    background-color: white;
-                   
-                    //border-radius: 50px 0 0 50px;
+                .menu_item.opened{
+                  //height: 150px;
+                  .submenu_item{
+                   opacity: 1;
+                   z-index: 1;
+                  }
                 }
+               
                 
-                .menu_item:nth-child(2){
-                    background-color: white;
-                    //color: white;
-                    border-right: 6px solid var(--amber);
-                }
+               
             }
         }
     }
@@ -63,7 +116,7 @@
         width: 70px;
         overflow: hidden;
         .menu_item{
-            padding-right: 10px;
+            //padding-right: 10px;
         }
     }
     .inner_container{
@@ -137,24 +190,30 @@
           margin: 15px;
           height: 85px;
           .shortcut_card{
-            border-radius: 25px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
             height: 70px;
             width: 210px;
-            background: linear-gradient(191deg, rgba(255,191,0,1) 0%, rgba(34,193,195,1) 100%);
+            //background: linear-gradient(191deg, rgba(255,191,0,1) 0%, rgba(34,193,195,1) 100%);]
+            background-color: var(--amber);
+            color: black;
             padding: 5px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: all .5s ease-out; 
+            //transition: all .5s ease-out; 
             box-shadow: 0px 0px 0px gainsboro;
             overflow: hidden;
           }
           .shortcut_card:hover{
-            box-shadow: 0px 5px 11px gainsboro;
-            transition: all .5s ease-out; 
-            height: 75px;
-            width: 215px;
+            //box-shadow: 0px 5px 11px gainsboro;
+            //transition: all .5s ease-out; 
+            //height: 75px;
+            //width: 215px;
+            border: 2px solid white;
+           
           }
         }
         .component_holder{

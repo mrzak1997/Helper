@@ -5,10 +5,14 @@
        </div>
        <div class="form-div">
             <form [formGroup]="registerForm">
-                
-                <mat-form-field class="form-field-username"  appearance="outline" >
+                <div class="form_col">
+                  <mat-form-field class="form-field-username"  appearance="outline" >
                     <mat-label style='font-family: "Irans-sanse"'>نام کاربری</mat-label>
                     <input formControlName="username" matInput >
+                </mat-form-field>
+                <mat-form-field class="example-full-width" appearance="outline">
+                  <mat-label style='font-family: "Irans-sanse"'>ایمیل</mat-label>
+                  <input formControlName="email" type="text" matInput  >
                 </mat-form-field>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label style='font-family: "Irans-sanse"'>کلمه عبور</mat-label>
@@ -18,10 +22,9 @@
                     <mat-label style='font-family: "Irans-sanse"'>تکرار کلمه عبور</mat-label>
                     <input formControlName="confirmPassword" type="password" matInput  >
                   </mat-form-field>
-                  <mat-form-field class="example-full-width" appearance="outline">
-                    <mat-label style='font-family: "Irans-sanse"'>ایمیل</mat-label>
-                    <input formControlName="email" type="text" matInput  >
-                  </mat-form-field>
+                 
+                </div>
+                <div class="form_col">
                   <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label style='font-family: "Irans-sanse"'>شماره موبایل</mat-label>
                     <input formControlName="phone_number" type="text" matInput  >
@@ -42,6 +45,9 @@
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
+                </div>
+                
+                 
                   <button type="submit" (click)="submit()" [disabled]="!registerForm.valid" mat-button color="accent">ثبت نام</button>
             </form>
        </div>

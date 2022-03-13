@@ -31,7 +31,7 @@
             
             $menu_items = [
                 1=>[
-                    "parent_name" => "اصلی",
+                    "parent_name" => "",
                     "name" => "فلوچارت",
                     "icon" => "table_chart"
                 ],
