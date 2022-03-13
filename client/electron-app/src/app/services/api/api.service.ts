@@ -8,7 +8,7 @@ import { catchError, map, tap, } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  url = 'http://localhost/Helper/BackEnd/Services/'
+  url = 'http://localhost/TraderHelper/BackEnd/Services/'
   httpOptionsFullResponse: { headers : any; observe : any; } = {
     headers: new HttpHeaders({ 
       'Content-Type': 'application/json',
