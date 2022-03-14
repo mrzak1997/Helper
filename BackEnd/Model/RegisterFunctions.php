@@ -33,7 +33,8 @@
     
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
 
             $sql_exist = "SELECT * FROM user WHERE ".$key."='".$value."'";
             
@@ -58,7 +59,8 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
             
             date_default_timezone_set("Asia/Tehran");
             

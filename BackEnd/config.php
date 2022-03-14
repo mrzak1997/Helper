@@ -17,8 +17,6 @@ class config
         try {
             $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"]);
             
-            $conn_db = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
-            
         } catch (Exception $e) {
             exit("Error: " . $e->getMessage());
         }

@@ -11,7 +11,7 @@
             if(mysqli_query($conn,$db_query)){
                 mysqli_close($conn);
                 
-                $GLOBALS['conn_db'] = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+                //$GLOBALS['conn_db'] = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
             
                 return true;
             }
@@ -22,7 +22,8 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
             if(!isset($conn)){
                 return false;
             }
