@@ -4,7 +4,7 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
 
             $sql = "SELECT * FROM response_message WHERE message_number=".$Response_data['status_number']." AND message_loc='".$Response_data['status_loc']."'";
             

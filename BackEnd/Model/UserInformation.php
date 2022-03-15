@@ -4,7 +4,7 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
 
             $Security = new Security();
             
@@ -36,7 +36,8 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
 
             date_default_timezone_set("Asia/Tehran");
             

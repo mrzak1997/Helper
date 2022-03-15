@@ -8,7 +8,7 @@
     
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
 
             date_default_timezone_set("Asia/Tehran");
 
@@ -34,6 +34,7 @@
 
                     //$Security->set_user_cookie($user['username'],$row["password"]);
                     if($last_password != $new_password){
+                        mysqli_close($conn);
                         $this->change_password_successful_login($user['username'],$last_password,$new_password);
                     }
                     $this->InsertLoginLog($log,$user);
@@ -69,7 +70,8 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
             
             $insert_Sql = "INSERT INTO loginlog (username,status,status_number,ip,isActive) 
             VALUES('".$user["username"]."','".$log["status"]."','".$log["status_number"]."','".$user["ip"]."','".$user['isActive']."')";
@@ -81,7 +83,7 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
 
             $Security = new Security();
             
@@ -101,7 +103,7 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
             
             
             $update_Sql = "UPDATE user SET password='".$new_password."' WHERE username='".$username."' AND password='".$last_password."'";

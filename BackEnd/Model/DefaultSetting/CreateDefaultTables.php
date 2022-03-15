@@ -69,6 +69,7 @@
                     `parent_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                     `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                     `icon` varchar(25) NOT NULL,
+                    `page_link` varchar(100) NOT NULL,
                     `date` TIMESTAMP NOT NULL , 
                     PRIMARY KEY (`id`)) ENGINE = InnoDB"; 
 

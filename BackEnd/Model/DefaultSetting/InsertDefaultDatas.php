@@ -9,7 +9,8 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
+
             
             date_default_timezone_set("Asia/Tehran");
 
@@ -27,29 +28,37 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
             
             $menu_items = [
                 1=>[
-                    "parent_name" => "",
-                    "name" => "فلوچارت",
-                    "icon" => "table_chart"
+                    "parent_name" => ""
+                    ,"name" => "فلوچارت"
+                    ,"icon" => "table_chart"
+                    ,"page_link" => ""
                 ],
                 2=>[
-                    "parent_name" => "فلوچارت",
-                    "name" => "ویرایش و حذف",
-                    "icon" => "edit_attributes"
+                    "parent_name" => "فلوچارت"
+                    ,"name" => "ایجاد"
+                    ,"icon" => "note_add"
+                    ,"page_link" => "create-flowchart"
                 ],
                 3=>[
+                    "parent_name" => "فلوچارت"
+                    ,"name" => "ویرایش و حذف"
+                    ,"icon" => "edit_attributes"
+                    ,"page_link" => "edit-flowchart"
+                ],
+                4=>[
                     "parent_name" => "فلوچارت",
                     "name" => "نمایش",
                     "icon" => "list"
+                    ,"page_link" => "show-flowchart"
                 ]
             ];
 
             foreach($menu_items as $items_key => $item){
-                $this->RunSql("INSERT INTO menu_items (parent_name,name,icon) 
-                        VALUES('".$item["parent_name"]."','".$item["name"]."','".$item["icon"]."')");
+                $this->RunSql("INSERT INTO menu_items (parent_name,name,icon,page_link) 
+                        VALUES('".$item["parent_name"]."','".$item["name"]."','".$item["icon"]."','".$item["page_link"]."')");
            
             }
         }
@@ -125,7 +134,7 @@
             $config = new config();
             $Connection = $config->Conncetion();
             $ConnVar = $GLOBALS['ConnVar'];
-            $conn = $GLOBALS['conn_db'];
+            $conn = mysqli_connect($ConnVar["servername"], $ConnVar["username"], $ConnVar["password"],$ConnVar["database"]);
 
 
             mysqli_query($conn,$sql);
