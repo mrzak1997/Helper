@@ -39,7 +39,7 @@
                 2=>[
                     "parent_name" => "فلوچارت"
                     ,"name" => "ایجاد"
-                    ,"icon" => "edit_attributes"
+                    ,"icon" => "note_add"
                     ,"page_link" => "create-flowchart"
                 ],
                 3=>[
