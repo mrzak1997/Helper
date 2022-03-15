@@ -21,6 +21,7 @@
                     if($row["parent_name"]==""){
                         $new_arr["name"] = $row["name"];
                         $new_arr["icon"] = $row["icon"];
+                        $new_arr["page_link"] = $row["page_link"];
                         $new_arr["sub_items"] = [];
                         $new_arr["parent_name"] = $row["parent_name"];
                         
@@ -38,6 +39,7 @@
 
                                 $new_arr["name"] = $db_data["name"];
                                 $new_arr["icon"] = $db_data["icon"];
+                                $new_arr["page_link"] = $row["page_link"];
                                 $new_arr["sub_items"] = "";
                                 $new_arr["parent_name"] = $db_data["parent_name"];
                         
@@ -58,6 +60,7 @@
             $arr=[
                 "name" => $items['name'],
                 "icon" => $items['icon'],
+                "page_link" => $items["page_link"],
                 "parent_name"=> $items['parent_name'],
                 "sub_items" => $items['sub_items']
             ];

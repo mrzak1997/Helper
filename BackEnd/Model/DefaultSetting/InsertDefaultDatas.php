@@ -31,25 +31,34 @@
             
             $menu_items = [
                 1=>[
-                    "parent_name" => "",
-                    "name" => "فلوچارت",
-                    "icon" => "table_chart"
+                    "parent_name" => ""
+                    ,"name" => "فلوچارت"
+                    ,"icon" => "table_chart"
+                    ,"page_link" => ""
                 ],
                 2=>[
-                    "parent_name" => "فلوچارت",
-                    "name" => "ویرایش و حذف",
-                    "icon" => "edit_attributes"
+                    "parent_name" => "فلوچارت"
+                    ,"name" => "ایجاد"
+                    ,"icon" => "edit_attributes"
+                    ,"page_link" => "Create_flowchart.js"
+                ],
+                2=>[
+                    "parent_name" => "فلوچارت"
+                    ,"name" => "ویرایش و حذف"
+                    ,"icon" => "edit_attributes"
+                    ,"page_link" => "edit_flowchart.js"
                 ],
                 3=>[
                     "parent_name" => "فلوچارت",
                     "name" => "نمایش",
                     "icon" => "list"
+                    ,"page_link" => "show_flowchart"
                 ]
             ];
 
             foreach($menu_items as $items_key => $item){
-                $this->RunSql("INSERT INTO menu_items (parent_name,name,icon) 
-                        VALUES('".$item["parent_name"]."','".$item["name"]."','".$item["icon"]."')");
+                $this->RunSql("INSERT INTO menu_items (parent_name,name,icon,page_link) 
+                        VALUES('".$item["parent_name"]."','".$item["name"]."','".$item["icon"]."','".$item["page_link"]."')");
            
             }
         }
