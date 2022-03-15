@@ -3,13 +3,16 @@ import { SystemService } from './../../services/api/system.service';
 
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import {TooltipPosition} from '@angular/material/tooltip';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  current_route = '';
+  tt_disabled = false;
+  positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   currentComponent = "0";
   height = '50px';
   menu_items:any ;
@@ -34,6 +37,7 @@ export class DashboardComponent implements OnInit {
   }
   
   close_menu(){
+    this.tt_disabled = !this.tt_disabled
     this.overflow= 'hidden';
     this.menu_closed = !this.menu_closed
     if(!this.menu_closed){
@@ -78,19 +82,13 @@ export class DashboardComponent implements OnInit {
         }
     }else{
       console.log(item)
-      if(item.parent_name == "فلوچارت"){
-        if(item.name == "ویرایش و حذف"){
-          console.log('go')
-          this.router.navigate(['dashboard/create-flowchart'])
-        }
+      if(item.page_link == 'create-flowchart'){
+        this.router.navigate(['dashboard/create-flowchart'])
       }
     }
   }
   current_active_menu(path:string){
-    switch(path){
-      case 'create-flowchart':
-        console.log("active create flowchart")
-        break;
-    }
+    console.log('path')
+    this.current_route = path
   }
 }

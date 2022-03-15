@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CreateFlowchartComponent } from './create-flowchart/create-flowchart.component';
 import { AppRoutingModule } from '../../app-routing.module';
 import { RouterModule } from '@angular/router';
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     DashboardComponent,
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     MatGridListModule,
     MatIconModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    MatTooltipModule
     
   ]
 })

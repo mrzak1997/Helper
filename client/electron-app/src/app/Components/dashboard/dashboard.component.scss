@@ -29,6 +29,9 @@
             width: 220px;
             
             .menu{
+              .menu-tooltip::ng-deep{
+                font-size: 10px;
+              }
                 width: 100%;
                 .menu_item{
                     width: 100%;
@@ -87,6 +90,7 @@
                       z-index: -5;
                       transition: all .2s ease-out; 
                       cursor: pointer;
+                      background-color: var(--submenu-bg);
                     }
                     .submenu_item:hover{
                       border-right: 6px solid var(--amber);
@@ -105,6 +109,12 @@
                    z-index: 1;
                   }
                 }
+                .active{
+                  border-right: 6px solid var(--amber)!important;
+                 
+                  background-color: white!important;
+                  
+                }
                
                 
                
@@ -115,9 +125,7 @@
         transition: all 0.5s ease-in;
         width: 70px;
         overflow: hidden;
-        .menu_item{
-            //padding-right: 10px;
-        }
+       
     }
     .inner_container{
         height: 100vh;

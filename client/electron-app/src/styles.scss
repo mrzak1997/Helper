@@ -1,15 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
 @use './src/assets/styles/theme.scss';
+
 :root{
   --menu-bg: #f8f8f8;
   --menu-item-color: #404040;
+  --submenu-bg: #f4f4f4;
   --amber: #FFBF00;
   --dark-cyan: #048d8d;
   --dark-blue:#010630;
   --dark-amber:#b98b02;
 }
 /*html, body { height: 100%; }*/
-body { margin: 0;  font-family: "Irans-sanse"!important;}
+body { margin: 0;  font-family: "Irans-sanse";}
 @font-face{
     font-family:"Yekan";
     src: url('assets/font/Yekan.ttf');
@@ -18,10 +21,12 @@ body { margin: 0;  font-family: "Irans-sanse"!important;}
     font-family:"Irans-sanse";
     src: url('assets/font/FontsFree-Net-ir_sans.ttf');
 }
-*{
-    font-family: "Irans-sanse"!important;
+*,h1{
+    font-family: "Irans-sanse";
 }
-
+h1{
+  font-family: "Irans-sanse"!important;
+}
 ///////             input           //////////////
 
 .mat-form-field-underline::before {
@@ -53,6 +58,13 @@ body { margin: 0;  font-family: "Irans-sanse"!important;}
 }
 .mat-select-min-line{
   color: white;
+}
+.mat-tooltip{
+  font-size: 10px!important;
+  font-family: "Irans-sanse";
+}
+.menu-tooltip{
+  font-size: 13px!important;
 }
 //////////////////////////////////////////////
     

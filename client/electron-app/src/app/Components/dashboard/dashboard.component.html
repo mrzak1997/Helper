@@ -9,55 +9,34 @@
             <div class="menu">
                 <div  *ngFor="let item of menu_items;index as i" class="menu_item " >
                    <div class="menu_item_stuff" (click)="menu_click($event.target,item)">
-                    <mat-icon style="width: 35px;">personal_video</mat-icon>
+                    <mat-icon style="width: 35px;" #tooltip="matTooltip"
+                    matTooltip="{{item.name}}"
+                    [matTooltipPosition]="positionOptions[2]"
+                    
+                    [matTooltipDisabled]="tt_disabled"
+                    [matTooltipHideDelay]="500"
+                    matTooltipClass="menu-tooltip"
+                   >{{item.icon}}</mat-icon>
                     <span class="just_a_class">
                         {{item.name}}
                     </span>
                     <mat-icon class="chevron_left">chevron_left</mat-icon>
 
                    </div>
-                    <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
-                        <mat-icon style="width: 35px;">personal_video</mat-icon>
+                    <div [ngClass]="{'submenu_item' : true,'active' : (sub_item.page_link == current_route)}"  *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
+                        <mat-icon style="width: 35px;" matTooltip="{{sub_item.name}}"
+                        [matTooltipPosition]="positionOptions[2]"
+                        
+                        [matTooltipHideDelay]="500"
+                        matTooltipClass="menu-tooltip"
+                        [matTooltipDisabled]="tt_disabled">{{sub_item.icon}}</mat-icon>
                         <span>
                             {{sub_item.name}}
                         </span>
                         <mat-icon>chevron_left</mat-icon>
                     </div>
                 </div>
-                <div *ngFor="let item of menu_items;index as i" class="menu_item " >
-                    <div class="menu_item_stuff " (click)="menu_click($event.target,item)">
-                     <mat-icon style="width: 35px;">personal_video</mat-icon>
-                     <span class="just_a_class">
-                         {{item.name}}
-                     </span>
-                     <mat-icon class="chevron_left">chevron_left</mat-icon>
- 
-                    </div>
-                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
-                         <mat-icon style="width: 35px;">personal_video</mat-icon>
-                         <span>
-                             {{sub_item.name}}
-                         </span>
-                         <mat-icon>chevron_left</mat-icon>
-                     </div>
-                </div>
-                <div *ngFor="let item of menu_items;index as i" class="menu_item " >
-                    <div class="menu_item_stuff " (click)="menu_click($event.target,item)">
-                     <mat-icon style="width: 35px;">personal_video</mat-icon>
-                     <span class="just_a_class">
-                         {{item.name}}
-                     </span>
-                     <mat-icon class="chevron_left">chevron_left</mat-icon>
- 
-                    </div>
-                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
-                         <mat-icon style="width: 35px;">personal_video</mat-icon>
-                         <span>
-                             {{sub_item.name}}
-                         </span>
-                         <mat-icon>chevron_left</mat-icon>
-                     </div>
-                </div>
+               
                  
             </div>
             
