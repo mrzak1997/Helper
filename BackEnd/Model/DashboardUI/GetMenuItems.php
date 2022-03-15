@@ -39,7 +39,7 @@
 
                                 $new_arr["name"] = $db_data["name"];
                                 $new_arr["icon"] = $db_data["icon"];
-                                $new_arr["page_link"] = $row["page_link"];
+                                $new_arr["page_link"] = $db_data["page_link"];
                                 $new_arr["sub_items"] = "";
                                 $new_arr["parent_name"] = $db_data["parent_name"];
                         

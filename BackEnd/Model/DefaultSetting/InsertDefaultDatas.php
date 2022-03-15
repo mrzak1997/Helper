@@ -42,17 +42,17 @@
                     ,"icon" => "edit_attributes"
                     ,"page_link" => "Create_flowchart.js"
                 ],
-                2=>[
+                3=>[
                     "parent_name" => "فلوچارت"
                     ,"name" => "ویرایش و حذف"
                     ,"icon" => "edit_attributes"
                     ,"page_link" => "edit_flowchart.js"
                 ],
-                3=>[
+                4=>[
                     "parent_name" => "فلوچارت",
                     "name" => "نمایش",
                     "icon" => "list"
-                    ,"page_link" => "show_flowchart"
+                    ,"page_link" => "show_flowchart.js"
                 ]
             ];
 
