@@ -40,19 +40,19 @@
                     "parent_name" => "فلوچارت"
                     ,"name" => "ایجاد"
                     ,"icon" => "edit_attributes"
-                    ,"page_link" => "Create_flowchart.js"
+                    ,"page_link" => "create-flowchart"
                 ],
                 3=>[
                     "parent_name" => "فلوچارت"
                     ,"name" => "ویرایش و حذف"
                     ,"icon" => "edit_attributes"
-                    ,"page_link" => "edit_flowchart.js"
+                    ,"page_link" => "edit-flowchart"
                 ],
                 4=>[
                     "parent_name" => "فلوچارت",
                     "name" => "نمایش",
                     "icon" => "list"
-                    ,"page_link" => "show_flowchart.js"
+                    ,"page_link" => "show-flowchart"
                 ]
             ];
 
