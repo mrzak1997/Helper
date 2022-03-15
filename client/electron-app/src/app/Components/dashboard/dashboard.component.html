@@ -8,7 +8,7 @@
            
             <div class="menu">
                 <div  *ngFor="let item of menu_items;index as i" class="menu_item " >
-                   <div class="menu_item_stuff" (click)="menu_click($event.target,item.sub_items.length)">
+                   <div class="menu_item_stuff" (click)="menu_click($event.target,item)">
                     <mat-icon style="width: 35px;">personal_video</mat-icon>
                     <span class="just_a_class">
                         {{item.name}}
@@ -16,7 +16,7 @@
                     <mat-icon class="chevron_left">chevron_left</mat-icon>
 
                    </div>
-                    <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j">
+                    <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
                         <mat-icon style="width: 35px;">personal_video</mat-icon>
                         <span>
                             {{sub_item.name}}
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div *ngFor="let item of menu_items;index as i" class="menu_item " >
-                    <div class="menu_item_stuff " (click)="menu_click($event.target,item.sub_items.length)">
+                    <div class="menu_item_stuff " (click)="menu_click($event.target,item)">
                      <mat-icon style="width: 35px;">personal_video</mat-icon>
                      <span class="just_a_class">
                          {{item.name}}
@@ -33,7 +33,7 @@
                      <mat-icon class="chevron_left">chevron_left</mat-icon>
  
                     </div>
-                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j">
+                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
                          <mat-icon style="width: 35px;">personal_video</mat-icon>
                          <span>
                              {{sub_item.name}}
@@ -42,7 +42,7 @@
                      </div>
                 </div>
                 <div *ngFor="let item of menu_items;index as i" class="menu_item " >
-                    <div class="menu_item_stuff " (click)="menu_click($event.target,item.sub_items.length)">
+                    <div class="menu_item_stuff " (click)="menu_click($event.target,item)">
                      <mat-icon style="width: 35px;">personal_video</mat-icon>
                      <span class="just_a_class">
                          {{item.name}}
@@ -50,7 +50,7 @@
                      <mat-icon class="chevron_left">chevron_left</mat-icon>
  
                     </div>
-                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j">
+                     <div class="submenu_item" *ngFor="let sub_item of item.sub_items;index as j" (click)="menu_click($event.target,sub_item)">
                          <mat-icon style="width: 35px;">personal_video</mat-icon>
                          <span>
                              {{sub_item.name}}

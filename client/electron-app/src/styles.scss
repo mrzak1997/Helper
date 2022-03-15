@@ -9,7 +9,7 @@
   --dark-amber:#b98b02;
 }
 /*html, body { height: 100%; }*/
-body { margin: 0;  font-family: "Irans-sanse";}
+body { margin: 0;  font-family: "Irans-sanse"!important;}
 @font-face{
     font-family:"Yekan";
     src: url('assets/font/Yekan.ttf');
@@ -19,7 +19,7 @@ body { margin: 0;  font-family: "Irans-sanse";}
     src: url('assets/font/FontsFree-Net-ir_sans.ttf');
 }
 *{
-    font-family: "Irans-sanse";
+    font-family: "Irans-sanse"!important;
 }
 
 ///////             input           //////////////
