@@ -51,7 +51,7 @@
                 4=>[
                     "parent_name" => "فلوچارت",
                     "name" => "نمایش",
-                    "icon" => "list"
+                    "icon" => "remove_red_eye"
                     ,"page_link" => "show-flowchart"
                 ]
             ];
