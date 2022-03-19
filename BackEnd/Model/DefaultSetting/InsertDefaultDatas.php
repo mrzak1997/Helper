@@ -44,7 +44,7 @@
                 ],
                 3=>[
                     "parent_name" => "فلوچارت"
-                    ,"name" => "ویرایش و حذف"
+                    ,"name" => "مدیریت فلوچارت ها"
                     ,"icon" => "edit_attributes"
                     ,"page_link" => "edit-flowchart"
                 ],
@@ -118,6 +118,36 @@
                         "message_status" => "error",
                         "message_number" => 752,
                         "message" => " ایمیل موجود است"
+                    ],
+                    10=>[
+                        "loc_name" => "create_flowchart",
+                        "message_status" => "successful",
+                        "message_number" => 200,
+                        "message" => "پروژه ایجاد شد"
+                    ],
+                    11=>[
+                        "loc_name" => "create_flowchart",
+                        "message_status" => "error",
+                        "message_number" => 753,
+                        "message" => "اشکال در بررسی اطلاعات"
+                    ],
+                    12=>[
+                        "loc_name" => "create_flowchart",
+                        "message_status" => "error",
+                        "message_number" => 754,
+                        "message" => "اشکال در اعتبارسنجی دوباره وارد شوید"
+                    ],
+                    13=>[
+                        "loc_name" => "create_flowchart",
+                        "message_status" => "error",
+                        "message_number" => 750,
+                        "message" => "یک پروژه با این نام موجود است"
+                    ],
+                    14=>[
+                        "loc_name" => "create_flowchart",
+                        "message_status" => "error",
+                        "message_number" => 755,
+                        "message" => "اشکال در ایجاد پروژه"
                     ]
                 ]
             ];
