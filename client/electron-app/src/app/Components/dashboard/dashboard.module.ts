@@ -8,10 +8,17 @@ import { CreateFlowchartComponent } from './create-flowchart/create-flowchart.co
 import { AppRoutingModule } from '../../app-routing.module';
 import { RouterModule } from '@angular/router';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { NodePipe } from 'src/app/helpers/node-pipe.pipe';
 @NgModule({
   declarations: [
     DashboardComponent,
-    CreateFlowchartComponent
+    CreateFlowchartComponent,
+    NodePipe,
   ],
   imports: [
     CommonModule,
@@ -19,8 +26,13 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatIconModule,
     AppRoutingModule,
     RouterModule,
-    MatTooltipModule
-    
+    MatTooltipModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatSelectModule
+
   ]
 })
 export class DashboardModule { }

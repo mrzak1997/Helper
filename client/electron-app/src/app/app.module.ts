@@ -12,16 +12,20 @@ import { TitleBarComponent } from './Components/shared/title-bar/title-bar.compo
 
 import { IpcService } from './services/ipc/ipc.service';
 import { MatSliderModule } from '@angular/material/slider';
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './helpers';
 import {MatGridListModule} from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleBarComponent,
-    AlertComponent
+    AlertComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -30,13 +34,13 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSliderModule,
     LoginModule,
     MatIconModule,
-    HttpClientModule, 
+    HttpClientModule,
     RegisterModule,
     DashboardModule,
     MatGridListModule
   ],
   exports:[
-   
+
   ],
   providers: [httpInterceptorProviders,IpcService],
   bootstrap: [AppComponent]

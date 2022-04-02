@@ -1,5 +1,66 @@
-<div> 
+<div>
     <h1>
-        ثبت فلوچارت
+        ثبت استراتژی
     </h1>
+    <div>
+        <form [formGroup]="flowchartForm">
+            <mat-form-field class="form-field-username"  appearance="outline" >
+                <mat-label style='font-family: "Irans-sanse";'>عنوان استراتژی </mat-label>
+                <input formControlName="title" matInput >
+            </mat-form-field>
+            <div formArrayName="nodes">
+                <h2>مراحل</h2>
+                <button type="button" mat-raised-button color="primary" (click)="addNodes()">مرحله اضافه کن</button>
+
+                <div class="dynamic_nodes">
+                    <div class="nodes" *ngFor="let formgroup of  nodes.controls; let i=index" [formGroupName]="i">
+                        <!-- The repeated alias template -->
+                          <div class="id">
+                            <label >
+                              {{i+1}}
+                            </label>
+                          </div>
+
+
+                          <mat-form-field  class="form-field-username"  appearance="outline" >
+                              <mat-label style='font-family: "Irans-sanse";'>متن </mat-label>
+                              <input formControlName="node_text" matInput >
+                          </mat-form-field>
+
+                          <mat-form-field appearance="outline">
+                            <mat-label>نوع</mat-label>
+                            <mat-select formControlName="node_type">
+                              <mat-option *ngFor="let type of types" [value]="type.value">
+                                {{type.viewValue}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>مرحله قبلی</mat-label>
+                            <mat-select formControlName="node_previous">
+                              <mat-option *ngFor="let node of nodes.value | nodePipe:i" [value]="node.node_id">
+                                {{node.node_id}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field appearance="outline">
+                            <mat-label>مرحله بعدی</mat-label>
+                            <mat-select formControlName="node_next">
+                              <mat-option *ngFor="let node of nodes.value  | nodePipe:i" [value]="node.node_id">
+                                {{node.node_id}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+
+
+                        </div>
+
+                </div>
+
+                <button type="button" mat-raised-button color="primary" (click)="addNodes()">مرحله اضافه کن</button>
+              </div>
+              {{flowchartForm.value | json}}
+        </form>
+    </div>
 </div>

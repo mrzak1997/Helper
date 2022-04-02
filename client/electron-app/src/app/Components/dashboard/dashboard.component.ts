@@ -83,6 +83,7 @@ export class DashboardComponent implements OnInit {
     }else{
       console.log(item)
       if(item.page_link == 'create-flowchart'){
+        this.current_active_menu("create-flowchart")
         this.router.navigate(['dashboard/create-flowchart'])
       }
     }
