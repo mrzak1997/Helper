@@ -56,14 +56,15 @@
                     `date` TIMESTAMP NOT NULL , 
                     PRIMARY KEY (`project_id`)) ENGINE = InnoDB";  
             $CreateChartNodesTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`chart_nodes` (
-                `node_id` INT NOT NULL AUTO_INCREMENT ,
-                `node_type` int NOT NULL,
-                `node_previous` int NOT NULL,
-                `node_next` int NOT NULL,
+                `id` INT NOT NULL AUTO_INCREMENT ,
+                `node_id` INT NOT NULL,
+                `node_type` varchar(15) NOT NULL,
+                `node_previous` int,
+                `node_next` int ,
                 `node_text` varchar(30),
-                `project_name`  varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                `project_id` INT NOT NULL,
                 `date` TIMESTAMP NOT NULL , 
-                PRIMARY KEY (`node_id`)) ENGINE = InnoDB"; 
+                PRIMARY KEY (`id`)) ENGINE = InnoDB"; 
             $CreateMenuTable = "CREATE TABLE IF NOT EXISTS " . $ConnVar["database"] . ".`menu_items` (
                     `id` INT NOT NULL AUTO_INCREMENT ,
                     `parent_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
