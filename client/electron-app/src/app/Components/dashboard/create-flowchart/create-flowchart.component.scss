@@ -28,7 +28,15 @@ mat-label{
         color: var(--red);
     }
 }
-.mat-select-min-line::ng-deep{
+.mat-select-value:ng-deep{
+  .mat-select-value-text:ng-deep{
+    .mat-select-min-line::ng-deep{
+      color: var(--menu-item-color);
+    }
+  }
+}
+
+.mat-select-min-line{
   color: var(--menu-item-color);
 }
 .dynamic_nodes{
@@ -45,6 +53,16 @@ mat-label{
       margin: 5px 0;
       .id{
         margin-top: -16px;
+        input{
+          width: 15px;
+          background: transparent;
+          border: 0px;
+        }
+      }
+      .delete_btn{
+        margin-top: -16px;
+        color: red;
+        cursor: pointer;
       }
       .mat-form-field-wrapper::ng-deep{
         padding-bottom: 0;

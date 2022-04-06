@@ -16,12 +16,11 @@
                     <div class="nodes" *ngFor="let formgroup of  nodes.controls; let i=index" [formGroupName]="i">
                         <!-- The repeated alias template -->
                           <div class="id">
-                            <label >
+                           <!-- <label formControlName="node_id">
                               {{i+1}}
-                            </label>
+                            </label>-->
+                            <input type="text" formControlName="node_id" readonly [disabled]="true">
                           </div>
-
-
                           <mat-form-field  class="form-field-username"  appearance="outline" >
                               <mat-label style='font-family: "Irans-sanse";'>متن </mat-label>
                               <input formControlName="node_text" matInput >
@@ -29,13 +28,13 @@
 
                           <mat-form-field appearance="outline">
                             <mat-label>نوع</mat-label>
-                            <mat-select formControlName="node_type">
+                            <mat-select formControlName="node_type" class="dark_select">
                               <mat-option *ngFor="let type of types" [value]="type.value">
                                 {{type.viewValue}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
-                          <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" class="dark_select">
                             <mat-label>مرحله قبلی</mat-label>
                             <mat-select formControlName="node_previous">
                               <mat-option *ngFor="let node of nodes.value | nodePipe:i" [value]="node.node_id">
@@ -43,7 +42,7 @@
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
-                          <mat-form-field appearance="outline">
+                          <mat-form-field appearance="outline" class="dark_select">
                             <mat-label>مرحله بعدی</mat-label>
                             <mat-select formControlName="node_next">
                               <mat-option *ngFor="let node of nodes.value  | nodePipe:i" [value]="node.node_id">
@@ -53,7 +52,7 @@
                           </mat-form-field>
 
 
-
+                          <mat-icon class="delete_btn" (click)="removeNode(i)">cancel</mat-icon>
                         </div>
 
                 </div>

@@ -25,6 +25,7 @@ export class CreateFlowchartComponent implements OnInit {
     ])
 
   })
+  node_id = 0;
   genders: gender[] = [
     {value: '1', viewValue: 'زن'},
     {value: '2', viewValue: 'مرد'},
@@ -103,7 +104,8 @@ export class CreateFlowchartComponent implements OnInit {
     console.log(this.nodes)
   }
   createFG(){
-    let id = this.nodes.length
+    let id = this.node_id
+    this.node_id++
     return  new FormGroup({
       node_id : this.fb.control(id),
       node_next : this.fb.control(''),
@@ -118,5 +120,9 @@ export class CreateFlowchartComponent implements OnInit {
   addNodes() {
     console.log(this.nodes)
     this.nodes.push(this.createFG())
+  }
+  removeNode(id:any){
+    this.nodes.removeAt(id)
+
   }
 }

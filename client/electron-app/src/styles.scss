@@ -39,7 +39,7 @@ h1,h2{
   .mat-form-field-label{
     color: white;
     font-size: 12px!important;
-}   
+}
 .mat-form-field-appearance-outline .mat-form-field-outline{
     color: white;
 }
@@ -49,6 +49,12 @@ h1,h2{
 .mat-select-min-line{
   color: white;
 }
+.dark_select{
+  .mat-select-min-line{
+    color: var(--menu-item-color);
+
+  }
+}
 .mat-tooltip{
   font-size: 10px!important;
   font-family: "Irans-sanse";
@@ -57,4 +63,3 @@ h1,h2{
   font-size: 13px!important;
 }
 //////////////////////////////////////////////
-    

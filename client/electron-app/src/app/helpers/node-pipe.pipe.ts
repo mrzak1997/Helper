@@ -6,14 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NodePipe implements PipeTransform {
 
-  transform(items: any[], filter: Object): any {
+  transform(items: any[], filter: number): any {
     //console.log(items)
     //console.log(filter)
 
 
   // filter items array, items which match and return true will be indexOf(filter !== -1)
   // kept, false will be filtered out
-  return items.filter(item => item.node_id != filter);
+  return items.filter(item => item.node_id != items[filter].node_id);
   }
 
 }
